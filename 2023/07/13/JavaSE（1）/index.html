@@ -18,10 +18,10 @@
 <meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/guanjianzi.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/NLZlDgxz3ci5Idr.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/76GgjWYz4DPBy1p.png">
-<meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/%EF%BF%BD%EF%BF%BD%C4%BB%EF%BF%BD%EF%BF%BD%CD%BC%202023-07-29%20015629.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/jieguo.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/CpI5jaWgR9nqTbc.png">
 <meta property="article:published_time" content="2023-07-13T13:07:15.000Z">
-<meta property="article:modified_time" content="2023-07-28T18:05:57.303Z">
+<meta property="article:modified_time" content="2023-07-28T18:08:49.036Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="JavaSE">
 <meta name="twitter:card" content="summary">
@@ -304,7 +304,7 @@
 <p>问题:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">2147483647</span>;   <span class="comment">//int最大值</span></span><br><span class="line">    a = a + <span class="number">1</span>;   <span class="comment">//继续加</span></span><br><span class="line">    System.out.println(a); <span class="comment">//此时a输出值应为多少?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此时a的值已经来到了<code>int</code>类型所能表示的最大值了，那么如果此时再继续<code>+1</code>，a的输出值应为多少？可以看到结果很奇怪：</p>
-<p><img src="/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/%EF%BF%BD%EF%BF%BD%C4%BB%EF%BF%BD%EF%BF%BD%CD%BC%202023-07-29%20015629.png" alt="屏幕截图 2023-07-29 015629.png"></p>
+<p><img src="/2023/07/13/JavaSE%EF%BC%881%EF%BC%89/jieguo.png" alt="jieguo.png"></p>
 <p>当int为最大值时，二进制表示形式为什么：</p>
 <ul>
 <li>2147483647 &#x3D; 01111111 11111111 11111111 11111111（第一个是符号位0，其他的全部为1，就是正数的最大值）</li>
