@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/09/JavaScript%E5%9F%BA%E7%A1%80/225312.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/09/JavaScript%E5%9F%BA%E7%A1%80/161821.png">
 <meta property="article:published_time" content="2023-09-09T08:27:06.000Z">
-<meta property="article:modified_time" content="2023-09-13T08:22:09.008Z">
+<meta property="article:modified_time" content="2023-09-16T03:19:59.826Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -205,6 +205,9 @@
 </blockquote>
 <hr>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>JS中使用var或let进行变量的定义。两者定义的变量作用域不同。</p>
+<blockquote>
+<p>var关键字是函数级别的作用域。<br>let关键字：<br>1、let是块级作用域（花括号级别的）<br>2、let是不存在变量提升的<br>3、let在相同作用域内是不能重复声明的</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="type">var</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//定义变量num，值为100</span></span><br><span class="line">        num = <span class="number">1</span>;<span class="comment">//重新对变量进行赋值</span></span><br><span class="line">        console.log(num);<span class="comment">//网页中控制台打印结果为1</span></span><br><span class="line"></span><br><span class="line">        console.log(num);</span><br><span class="line">        <span class="type">var</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">1</span>;  <span class="comment">//控制台打印结果为undefined，不会报错</span></span><br><span class="line"></span><br><span class="line">        console.log(num);<span class="comment">//单独打印会报错</span></span><br><span class="line"></span><br><span class="line">        <span class="type">var</span> <span class="variable">ab</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//定义变量ab，值为字符串hello</span></span><br><span class="line">        <span class="type">var</span> <span class="variable">c</span> <span class="operator">=</span> &#123;name:<span class="string">&quot;abc&quot;</span>&#125;;<span class="comment">//定义键值对变量</span></span><br><span class="line">        <span class="type">var</span> <span class="variable">s</span> <span class="operator">=</span> [<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>]; <span class="comment">//定义列表变量</span></span><br><span class="line">        <span class="type">var</span> <span class="variable">wo</span> <span class="operator">=</span> <span class="literal">false</span>; <span class="comment">//定义布尔型变量</span></span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 <p><code>数据类型</code></p>
 <h3 id="数值-基本数据类型-number"><a href="#数值-基本数据类型-number" class="headerlink" title="数值(基本数据类型) number"></a>数值(基本数据类型) <em>number</em></h3><h3 id="字符串-基本数据类型-string"><a href="#字符串-基本数据类型-string" class="headerlink" title="字符串(基本数据类型) string"></a>字符串(基本数据类型) <em>string</em></h3><h3 id="布尔型-基本数据类型-boolean"><a href="#布尔型-基本数据类型-boolean" class="headerlink" title="布尔型(基本数据类型) boolean"></a>布尔型(基本数据类型) <em>boolean</em></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">var</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;张三&quot;</span>;</span><br><span class="line"><span class="type">var</span> <span class="variable">big</span> <span class="operator">=</span> <span class="string">&#x27;hhhh&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">var</span> <span class="variable">n</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
@@ -900,11 +903,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
