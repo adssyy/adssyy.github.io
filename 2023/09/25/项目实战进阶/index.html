@@ -17,6 +17,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/175107.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/175513.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/134447.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/134943.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/140328.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/141032.png">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/141126.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/145558.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/204617.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/214321.png">
@@ -37,7 +42,7 @@
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/134826.png">
 <meta property="og:image" content="https://adssyy.github.io.git/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/140005.png">
 <meta property="article:published_time" content="2023-09-25T08:55:16.000Z">
-<meta property="article:modified_time" content="2023-10-04T15:21:21.725Z">
+<meta property="article:modified_time" content="2023-10-05T06:11:59.558Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="SpringBoot&amp;Vue">
 <meta name="twitter:card" content="summary">
@@ -311,6 +316,260 @@
 <li>强制其跳转到登录页面：next(‘&#x2F;login’)</li>
 <li>强制其停留在当前页面：next(false)</li>
 </ul>
+<p>4、前端数据模拟–mockjs</p>
+<ol>
+<li>什么是mockjs<br>Mock.js 是一款前端开发中拦截Ajax请求再生成随机数据响应的工具.可以用来模拟服务器响应. 优点是非常简单方便, 无侵入性, 基本覆盖常用的接口数据类型.</li>
+</ol>
+<ul>
+<li>前后端分离 </li>
+<li>开发无侵入（不需要修改既有代码，就可以拦截 Ajax 请求，返回模拟的响应数据。） </li>
+<li>数据类型丰富（支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。） </li>
+<li>增加单元测试的真实性（通过随机数据，模拟各种场景。） </li>
+<li>用法简单、符合直觉的接口。 </li>
+<li>方便扩展（支持支持扩展更多数据类型，支持自定义函数和正则。）</li>
+</ul>
+<blockquote>
+<p>安装： <code>npm install mockjs</code></p>
+</blockquote>
+<ol start="2">
+<li>快速入门</li>
+</ol>
+<p>在项目中创建mock目录，新建index.js文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//引入mockjs</span><br><span class="line">import Mock from &#x27;mockjs&#x27;</span><br><span class="line">//使用mockjs模拟数据</span><br><span class="line">Mock.mock(&#x27;/product/search&#x27;, &#123;</span><br><span class="line">    &quot;ret&quot;:0,</span><br><span class="line">    &quot;data&quot;:</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;mtime&quot;: &quot;@datetime&quot;,//随机生成日期时间</span><br><span class="line">            &quot;score|1-800&quot;: 1,//随机生成1-800的数字</span><br><span class="line">            &quot;rank|1-100&quot;: 1,//随机生成1-100的数字</span><br><span class="line">            &quot;stars|1-5&quot;: 1,//随机生成1-5的数字</span><br><span class="line">            &quot;nickname&quot;: &quot;@cname&quot;,//随机生成中文名字</span><br><span class="line">            //生成图片</span><br><span class="line">            &quot;img&quot;:&quot;@image(&#x27;200x100&#x27;, &#x27;#ffcc33&#x27;, &#x27;#FFF&#x27;, &#x27;png&#x27;, &#x27;Fast Mock&#x27;)&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.js里面引入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;./mock&#x27;</span><br></pre></td></tr></table></figure>
+<p>xxx.vue文件中调用mock.js中模拟的数据接口，这时返回的response就是mock.js中用Mock.mock(‘url’,data）中设置的data了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios from <span class="string">&#x27;axios&#x27;</span></span><br><span class="line">export <span class="keyword">default</span> &#123;</span><br><span class="line">    mounted:function()&#123;</span><br><span class="line">        axios.get(<span class="string">&quot;/product/search&quot;</span>).then(res =&gt; &#123;</span><br><span class="line">        console.log(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，如果 get 请求如果带参数，会以 ?a&#x3D;b&amp;c&#x3D;d ，形式拼接到url上，这时mock请把接口url写为正则<br>匹配，否则匹配不到就报错 Mock.mock(RegExp(API_URL + “.*”) ），如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios from <span class="string">&#x27;axios&#x27;</span></span><br><span class="line">export <span class="keyword">default</span> &#123;</span><br><span class="line">        mounted:function()&#123;</span><br><span class="line">            <span class="comment">///product/search?id=2</span></span><br><span class="line">            axios.get(<span class="string">&quot;/product/search&quot;</span>,&#123;params:&#123;id:<span class="number">2</span>&#125;&#125;).then(res =&gt; &#123;</span><br><span class="line">            console.log(res)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在url后面加上 .*</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mockjs.mock(RegExp(<span class="string">&quot;/product/search&quot;</span>+ <span class="string">&quot;.*&quot;</span>),<span class="string">&#x27;get&#x27;</span>,option=&gt;&#123;</span><br><span class="line">    console.log(option.url) <span class="comment">// 请求的url</span></span><br><span class="line">    console.log(option.body)<span class="comment">// body为post请求参数</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        status:<span class="number">200</span>,</span><br><span class="line">        message:<span class="string">&quot;获取数据成功&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>核心方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock( rurl?, rtype?, template|function( options ) )</span><br></pre></td></tr></table></figure>
+这是mock的核心方法，根据数据模板生成模拟数据。</li>
+</ol>
+<ul>
+<li>rurl ，可选。<br>表示需要拦截的 URL，可以是 URL 字符串或 URL 正则。例如：正则+变量写法 -&gt;<br>RegExp(API_URL.LOGIN + “.*”) 、正则写法 -&gt; &#x2F;/domain/list.json&#x2F; 、字符串写法 -&gt; ‘&#x2F;domian&#x2F;list.json’ 。</li>
+<li>rtype，可选。<br>表示需要拦截的 Ajax 请求类型。例如 GET 、 POST 、 PUT 、 DELETE 等。</li>
+<li>template，可选。<br>表示数据模板，可以是对象或字符串。例如 { ‘data|1-10’:[{}] } 、 ‘@EMAIL’ 。</li>
+<li>function(options)，可选。<br>表示用于生成响应数据的函数。</li>
+<li>options  指向本次请求的Ajax选项集，含有url、type和body 三个属性，参见XMLHttpRequest规范。</li>
+</ul>
+<p>具体使用：</p>
+<ul>
+<li>Mock.mock( template ) ：根据数据模板生成模拟数据。</li>
+<li>Mock.mock( rurl, template ) ： 记录数据模板。当拦截到匹配 rurl 的 Ajax 请求时，将根据数据<br>模板 template 生成模拟数据，并作为响应数据返回。</li>
+<li>Mock.mock( rurl, function( options ) ) ： 记录用于生成响应数据的函数。当拦截到匹配 rurl 的</li>
+<li>Ajax 请求时，函数 function(options) 将被执行，并把执行结果作为响应数据返回。</li>
+<li>Mock.mock( rurl, rtype, template ) ： 记录数据模板。当拦截到匹配 rurl 和 rtype 的 Ajax 请<br>求时，将根据数据模板 template 生成模拟数据，并作为响应数据返回。</li>
+<li>Mock.mock( rurl, rtype, function( options ) ) ： 记录用于生成响应数据的函数。当拦截到匹配<br>rurl 和 rtype 的 Ajax 请求时，函数 function(options) 将被执行，并把执行结果作为响应数<br>据返回。</li>
+</ul>
+<ol start="4">
+<li><p>设置延时请求到数据<br>不设置延时很有可能遇到坑，这里需要留意，因为真实的请求是需要时间的，mock不设置延时则是马上拿到数据返回，这两个情况不同可能导致在接口联调时出现问题。所以最好要先设置延时请求到数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//延时400ms请求到数据</span></span><br><span class="line">Mock.setup(&#123;</span><br><span class="line">    timeout: <span class="number">400</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//延时200-600毫秒请求到数据</span></span><br><span class="line">Mock.setup(&#123;</span><br><span class="line">    timeout: <span class="string">&#x27;200-600&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据生成规则<br>mock的语法规范包含两层规范:</p>
+</li>
+</ol>
+<ul>
+<li>数据模板 （DTD）</li>
+<li>数据占位符 （DPD）</li>
+</ul>
+<p>（1）数据模板DTD</p>
+<p>1、基本语法<br>数据模板中的每个属性由 3 部分构成：属性名name、生成规则rule、属性值value：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;name|rule&#x27;</span>: value</span><br></pre></td></tr></table></figure>
+<p>属性名和生成规则之间用竖线 | 分隔，生成规则是可选的<br>生成规则 有 7 种格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|count&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|min-max.dmin-dmax&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|min-max.dcount&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|count.dmin-dmax&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|count.dcount&#x27;</span>: value</span><br><span class="line"><span class="string">&#x27;name|+step&#x27;</span>: value</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>生成规则的含义需要依赖属性值的类型才能确定。属性值中可以含有 <code>@占位符</code>。属性值还指定了最终值的初始值和类型。</p>
+</blockquote>
+<p>2、生成规则和示例</p>
+<p>属性值是字符串 String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过重复 string 生成一个字符串，重复次数大于等于 min，小于等于 max。</span></span><br><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: string</span><br><span class="line"><span class="comment">//通过重复 string 生成一个字符串，重复次数等于 count。</span></span><br><span class="line"><span class="string">&#x27;name|count&#x27;</span>: string</span><br><span class="line"></span><br><span class="line"><span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;name1|1-3&#x27;</span>:<span class="string">&#x27;a&#x27;</span>, <span class="comment">//重复生成1到3个a(随机)</span></span><br><span class="line">        <span class="string">&#x27;name2|2&#x27;</span>:<span class="string">&#x27;b&#x27;</span> <span class="comment">//生成bb</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>属性值是数字 Number</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//属性值自动加 1，初始值为 number。</span></span><br><span class="line"><span class="string">&#x27;name|+1&#x27;</span>: number</span><br><span class="line"><span class="comment">//生成一个大于等于 min、小于等于 max 的整数，属性值 number 只是用来确定类型。</span></span><br><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: number</span><br><span class="line"><span class="comment">//生成一个浮点数，整数部分大于等于 min、小于等于 max，小数部分保留 dmin 到 dmax 位。</span></span><br><span class="line"><span class="string">&#x27;name|min-max.dmin-dmax&#x27;</span>: number</span><br><span class="line"></span><br><span class="line">        Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;number1|1-100.1-10&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">&#x27;number2|123.1-10&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">&#x27;number3|123.3&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="string">&#x27;number4|123.10&#x27;</span>: <span class="number">1.123</span></span><br><span class="line">        &#125;)</span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;number1&quot;</span>: <span class="number">12.92</span>,</span><br><span class="line">        <span class="string">&quot;number2&quot;</span>: <span class="number">123.51</span>,</span><br><span class="line">        <span class="string">&quot;number3&quot;</span>: <span class="number">123.777</span>,</span><br><span class="line">        <span class="string">&quot;number4&quot;</span>: <span class="number">123.1231091814</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;name1|+1&#x27;</span>:<span class="number">4</span>, <span class="comment">//生成4，如果循环每次加1</span></span><br><span class="line">        <span class="string">&#x27;name2|1-7&#x27;</span>:<span class="number">2</span>, <span class="comment">//生成一个数字，1到7之间</span></span><br><span class="line">        <span class="string">&#x27;name3|1-4.5-8&#x27;</span>:<span class="number">1</span> <span class="comment">////生成一个小数，整数部分1到4，小数部分5到8位，数字1只是为了确定类型</span></span><br><span class="line">        &#125;)        </span><br></pre></td></tr></table></figure>
+
+<p>属性值是布尔型 Boolean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。</span></span><br><span class="line"><span class="string">&#x27;name|1&#x27;</span>: <span class="type">boolean</span></span><br><span class="line"><span class="comment">//随机生成一个布尔值，值为 value 的概率是 min / (min + max)，值为 !value 的概率是 max / (min + max)</span></span><br><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: value</span><br><span class="line"></span><br><span class="line">        <span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;name|1&#x27;</span>:<span class="literal">true</span>, <span class="comment">//生成一个布尔值，各一半</span></span><br><span class="line">        <span class="string">&#x27;name1|1-3&#x27;</span>:<span class="literal">true</span> <span class="comment">//1/4是true，3/4是false</span></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>属性值是对象 Object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从属性值 object 中随机选取 count 个属性。</span></span><br><span class="line"><span class="string">&#x27;name|count&#x27;</span>: object</span><br><span class="line"><span class="comment">//从属性值 object 中随机选取 min 到 max 个属性。</span></span><br><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: object</span><br><span class="line"></span><br><span class="line">        <span class="type">var</span> <span class="variable">obj</span> <span class="operator">=</span> &#123;</span><br><span class="line">        a:<span class="number">1</span>,</span><br><span class="line">        b:<span class="number">2</span>,</span><br><span class="line">        c:<span class="number">3</span>,</span><br><span class="line">        d:<span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;name|1-3&#x27;</span>:obj, <span class="comment">//随机从obj中寻找1到3个属性，新对象</span></span><br><span class="line">        <span class="string">&#x27;name|2&#x27;</span>:obj <span class="comment">//随机从onj中找到两个属性，新对象</span></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>属性值是数组 Array</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从属性值 array 中随机选取 1 个元素，作为最终值。</span></span><br><span class="line"><span class="string">&#x27;name|1&#x27;</span>: array</span><br><span class="line"><span class="comment">//从属性值 array 中顺序选取 1 个元素，作为最终值。</span></span><br><span class="line"><span class="string">&#x27;name|+1&#x27;</span>: array</span><br><span class="line"><span class="comment">//通过重复属性值 array 生成一个新数组，重复次数大于等于 min，小于等于 max。</span></span><br><span class="line"><span class="string">&#x27;name|min-max&#x27;</span>: array</span><br><span class="line"><span class="comment">//通过重复属性值 array 生成一个新数组，重复次数为 count。</span></span><br><span class="line"><span class="string">&#x27;name|count&#x27;</span>: array</span><br><span class="line"></span><br><span class="line">        Mock.mock(&#123;</span><br><span class="line">        <span class="comment">//通过重复属性值 array 生成一个新数组，重复次数为 1-3次。</span></span><br><span class="line">        <span class="string">&quot;favorite_games|1-3&quot;</span>: [<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">23</span>,<span class="number">28</span>,<span class="number">42</span>,<span class="number">45</span>],</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">var</span> <span class="variable">arr</span> <span class="operator">=</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">        <span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">        <span class="string">&#x27;name1|1&#x27;</span>:arr, <span class="comment">//从数组里随机取出1个值</span></span><br><span class="line">        <span class="string">&#x27;name2|2&#x27;</span>:arr, <span class="comment">//数组重复count次，这里count为2</span></span><br><span class="line">        <span class="string">&#x27;name3|1-3&#x27;</span>:arr, <span class="comment">//数组重复1到3次</span></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>属性值是函数 Function<br>执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 ‘name’ 所在的对象。<br>‘name’: function</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">fun</span> <span class="operator">=</span> function(x)&#123;</span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">var</span> <span class="variable">data</span> <span class="operator">=</span> Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:fun(<span class="number">10</span>) <span class="comment">//返回函数的返回值20</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>属性值是正则表达式 RegExp</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock(&#123;</span><br><span class="line">    <span class="string">&#x27;regexp1&#x27;</span>: /[a-z][A-Z][<span class="number">0</span>-<span class="number">9</span>]/,</span><br><span class="line">    <span class="string">&#x27;regexp2&#x27;</span>: /\w\W\s\S\d\D/,</span><br><span class="line">    <span class="string">&#x27;regexp3&#x27;</span>: /\d&#123;<span class="number">5</span>,<span class="number">10</span>&#125;/</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;regexp1&quot;</span>: <span class="string">&quot;pJ7&quot;</span>,</span><br><span class="line">    <span class="string">&quot;regexp2&quot;</span>: <span class="string">&quot;F)\fp1G&quot;</span>,</span><br><span class="line">    <span class="string">&quot;regexp3&quot;</span>: <span class="string">&quot;561659409&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(2)数据占位符DPD<br>占位符只是在属性值字符串中占个位置，并不出现在最终的属性值中。<br>占位符的格式为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@占位符</span><br><span class="line">@占位符(参数 [, 参数])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用 @ 标识符标识后面的字符串是占位符</p>
+<p>占位符 引用的是 Mock.Random 中的方法。</p>
+<p>可以通过 Mock.Random.extend() 来扩展自定义占位符。</p>
+<p>占位符 也可以引用 数据模板 中的属性。</p>
+<p>占位符 会优先引用 数据模板 中的属性。</p>
+<p>占位符 支持 相对路径 和 绝对路径。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入mockjs</span></span><br><span class="line"><span class="keyword">import</span> Mock from <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="comment">//使用mockjs模拟数据</span></span><br><span class="line">Mock.mock(<span class="string">&#x27;/api/msdk/proxy/query_common_credit&#x27;</span>, &#123;</span><br><span class="line">    <span class="string">&quot;ret&quot;</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;data&quot;</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;mtime&quot;</span>: <span class="string">&quot;@datetime&quot;</span>,<span class="comment">//随机生成日期时间</span></span><br><span class="line">            <span class="string">&quot;score&quot;</span>: <span class="string">&quot;@natural(1, 800)&quot;</span>,<span class="comment">//随机生成1-800的数字</span></span><br><span class="line">            <span class="string">&quot;rank&quot;</span>: <span class="string">&quot;@natural(1, 100)&quot;</span>,<span class="comment">//随机生成1-100的数字</span></span><br><span class="line">            <span class="string">&quot;stars&quot;</span>: <span class="string">&quot;@natural(0, 5)&quot;</span>,<span class="comment">//随机生成1-5的数字</span></span><br><span class="line">            <span class="string">&quot;nickname&quot;</span>: <span class="string">&quot;@cname&quot;</span>,<span class="comment">//随机生成中文名字</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>用例</li>
+</ol>
+<p>基础随机内容的生成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="string">&quot;string|1-10&quot;</span>: <span class="string">&quot;=&quot;</span>, <span class="comment">// 随机生成1到10个等号</span></span><br><span class="line">        <span class="string">&quot;string2|3&quot;</span>: <span class="string">&quot;=&quot;</span>, <span class="comment">// 随机生成2个或者三个等号</span></span><br><span class="line">        <span class="string">&quot;number|+1&quot;</span>: <span class="number">0</span>, <span class="comment">// 从0开始自增</span></span><br><span class="line">        <span class="string">&quot;number2|1-00.1-3&quot;</span>: <span class="number">1</span>, <span class="comment">// 生成一个小数，小数点前面1到10，小数点后1到3位</span></span><br><span class="line">        <span class="string">&quot;boolean&quot;</span>: <span class="string">&quot;@boolean( 1, 2, true )&quot;</span>, <span class="comment">// 生成boolean值 三个参数，1表示第三个参数true</span></span><br><span class="line">        出现的概率，<span class="number">2</span>表示<span class="literal">false</span>出现的概率</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;@cname&quot;</span>, <span class="comment">// 随机生成中文姓名</span></span><br><span class="line">        <span class="string">&quot;firstname&quot;</span>: <span class="string">&quot;@cfirst&quot;</span>, <span class="comment">// 随机生成中文姓</span></span><br><span class="line">        <span class="string">&quot;int&quot;</span>: <span class="string">&quot;@integer(1, 10)&quot;</span>, <span class="comment">// 随机生成1-10的整数</span></span><br><span class="line">        <span class="string">&quot;float&quot;</span>: <span class="string">&quot;@float(1,2,3,4)&quot;</span>, <span class="comment">// 随机生成浮点数，四个参数分别为，整数部分的最大最小值和小</span></span><br><span class="line">        数部分的最大最小值</span><br><span class="line">        <span class="string">&quot;range&quot;</span>: <span class="string">&quot;@range(1,100,10)&quot;</span>, <span class="comment">// 随机生成整数数组，三个参数为，最大最小值和加的步长</span></span><br><span class="line">        <span class="string">&quot;natural&quot;</span>: <span class="string">&quot;@natural(60, 100)&quot;</span>, <span class="comment">// 随机生成自然数（大于零的数）</span></span><br><span class="line">        <span class="string">&quot;email&quot;</span>: <span class="string">&quot;@email&quot;</span>, <span class="comment">// 邮箱</span></span><br><span class="line">        <span class="string">&quot;ip&quot;</span>: <span class="string">&quot;@ip&quot;</span> ,<span class="comment">// ip</span></span><br><span class="line">        <span class="string">&quot;datatime&quot;</span>: <span class="string">&quot;@date(&#x27;yy-MM-dd hh:mm:ss&#x27;)&quot;</span> <span class="comment">// 随机生成指定格式的时间</span></span><br><span class="line">        <span class="comment">// ......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>列表数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;code&quot;</span>: <span class="string">&quot;0000&quot;</span>,</span><br><span class="line">    <span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;pageNo&quot;</span>: <span class="string">&quot;@integer(1, 100)&quot;</span>,</span><br><span class="line">        <span class="string">&quot;totalRecord&quot;</span>: <span class="string">&quot;@integer(100, 1000)&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pageSize&quot;</span>: <span class="number">10</span>,</span><br><span class="line">        <span class="string">&quot;list|10&quot;</span>: [&#123;</span><br><span class="line">            <span class="string">&quot;id|+1&quot;</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;@cword(10)&quot;</span>,</span><br><span class="line">            <span class="string">&quot;title&quot;</span>: <span class="string">&quot;@cword(20)&quot;</span>,</span><br><span class="line">            <span class="string">&quot;descript&quot;</span>: <span class="string">&quot;@csentence(20,50)&quot;</span>,</span><br><span class="line">            <span class="string">&quot;price&quot;</span>: <span class="string">&quot;@float(10,100,10,100)&quot;</span></span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&quot;desc&quot;</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>图片<br>mockjs可以生成任意大小，任意颜色块，且用文字填充内容的图片，使我们不用到处找图片资源就能轻松实现图片的模拟展示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;code&quot;</span>: <span class="string">&quot;0000&quot;</span>,</span><br><span class="line">    <span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;pageNo&quot;</span>: <span class="string">&quot;@integer(1, 100)&quot;</span>,</span><br><span class="line">        <span class="string">&quot;totalRecord&quot;</span>: <span class="string">&quot;@integer(100, 1000)&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pageSize&quot;</span>: <span class="number">10</span>,</span><br><span class="line">        <span class="string">&quot;list|10&quot;</span>: [&#123;</span><br><span class="line">        <span class="comment">// 参数从左到右依次为，图片尺寸，背景色，前景色（及文字颜色）,图片格式，图片中间的填充文字内容</span></span><br><span class="line">            <span class="string">&quot;image&quot;</span>: <span class="string">&quot;@image(&#x27;200x100&#x27;, &#x27;#ffcc33&#x27;, &#x27;#FFF&#x27;, &#x27;png&#x27;, &#x27;Fast Mock&#x27;)&quot;</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;desc&quot;</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>Mock.Random<br>Mock.Random 是一个工具类，用于生成各种随机数据。<br>Mock.Random 的方法在数据模板中称为『占位符』，书写格式为 @占位符(参数 [, 参数]) 。<br>用法示例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">Random</span> <span class="operator">=</span> Mock.Random</span><br><span class="line">Random.email()</span><br><span class="line"><span class="comment">// =&gt; &quot;n.clark@miller.io&quot;</span></span><br><span class="line">Mock.mock(<span class="string">&#x27;@email&#x27;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;y.lee@lewis.org&quot;</span></span><br><span class="line">Mock.mock( &#123; email: <span class="string">&#x27;@email&#x27;</span> &#125; )</span><br><span class="line"><span class="comment">// =&gt; &#123; email: &quot;v.lewis@hall.gov&quot; &#125;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Mock.Random 提供的完整方法（占位符）如下：</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Basic</td>
+<td>boolean, natural, integer, float, character, string, range, date, time,datetime, now</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>image,dataImage</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>color</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>paragraph, sentence, word, title, cparagraph, csentence, cword, ctitle</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>first, last, name, cfirst, clast, cname</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>url, domain, email, ip, tld</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>area, region</td>
+</tr>
+<tr>
+<td>Helper</td>
+<td>capitalize, upper, lower, pick, shuffle</td>
+</tr>
+<tr>
+<td>Miscellaneous</td>
+<td>guid, id</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>详细使用见 D:\StudyFile\Java\Vue+SpringBoot相关笔记\mockjs.pdf</p>
+</blockquote>
+<p><em>扩展</em><br>Mock.Random 中的方法与数据模板的 @占位符 一一对应，在需要时还可以为 Mock.Random 扩展方<br>法，然后在数据模板中通过 @扩展方法 引用。<br>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Random.extend(&#123;</span><br><span class="line">    constellation: function(date) &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">constellations</span> <span class="operator">=</span> [<span class="string">&#x27;白羊座&#x27;</span>, <span class="string">&#x27;金牛座&#x27;</span>, <span class="string">&#x27;双子座&#x27;</span>, <span class="string">&#x27;巨蟹座&#x27;</span>, <span class="string">&#x27;狮子座&#x27;</span>, <span class="string">&#x27;处女</span></span><br><span class="line"><span class="string">座&#x27;</span>, <span class="string">&#x27;天秤座&#x27;</span>, <span class="string">&#x27;天蝎座&#x27;</span>, <span class="string">&#x27;射手座&#x27;</span>, <span class="string">&#x27;摩羯座&#x27;</span>, <span class="string">&#x27;水瓶座&#x27;</span>, <span class="string">&#x27;双鱼座&#x27;</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.pick(constellations)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">Random.constellation()</span><br><span class="line"><span class="comment">// =&gt; &quot;水瓶座&quot;</span></span><br><span class="line">Mock.mock(<span class="string">&#x27;@CONSTELLATION&#x27;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;天蝎座&quot;</span></span><br><span class="line">Mock.mock(&#123;</span><br><span class="line">    constellation: <span class="string">&#x27;@CONSTELLATION&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt; &#123; constellation: &quot;射手座&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>5、跨域认证</p>
+<p>Session认证<br>互联网服务离不开用户认证。<br>一般流程：</p>
+<ul>
+<li>用户向服务器发送用户名和密码。</li>
+<li>服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等。</li>
+<li>服务器向用户返回一个 session_id，写入用户的 Cookie。</li>
+<li>用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。</li>
+<li>服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。</li>
+</ul>
+<p>session认证流程</p>
+<p><img src="/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/134447.png" alt="134447.png"></p>
+<p>session 认证的方式应用非常普遍，但也存在一些问题，扩展性不好，如果是服务<br>器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能<br>够读取 session，针对此种问题一般有两种方案：</p>
+<ul>
+<li>一种解决方案是session 数据持久化，写入数据库或别的持久层。各种服务收<br>到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量<br>比较大。</li>
+<li>一种方案是服务器不再保存 session 数据，所有数据都保存在客户端，每次请<br>求都发回服务器。Token认证就是这种方案的一个代表。</li>
+</ul>
+<p><em>Token认证</em><br>Token 是在服务端产生的一串字符串,是客户端访问资源接口（API）时所需要的资源凭证，流程如下：</p>
+<ul>
+<li>客户端使用用户名跟密码请求登录，服务端收到请求，去验证用户名与密码</li>
+<li>验证成功后，服务端会签发一个 token 并把这个 token 发送给客户端</li>
+<li>客户端收到token以后会把它存储起来，比如放在cookie里或者localStorage 里</li>
+<li>客户端每次向服务端请求资源的时候需要带着服务端签发的 token</li>
+<li>服务端收到请求，然后去验证客户端请求里面带着的token，如果验证成功，就向客户端返回请求的数据</li>
+</ul>
+<p>token认证流程</p>
+<p><img src="/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/134943.png" alt="134943.png"></p>
+<p>Token认证的特点</p>
+<ul>
+<li>基于token的用户认证是一种服务端无状态的认证方式，服务端不用存放token数据。</li>
+<li>用解析token的计算时间换取session的存储空间，从而减轻服务器的压力，减少频繁的查询数据库</li>
+<li>token 完全由应用管理，所以它可以避开同源策略</li>
+</ul>
+<p><em>JWT</em></p>
+<ul>
+<li>JSON Web Token（简称 JWT）是一个token的具体实现方式，是目前最流行 的跨域认证解决方案。</li>
+<li>JWT 的原理是，服务器认证以后，生成一个JSON对象，发回给用户，具体如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;姓名&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    <span class="string">&quot;角色&quot;</span>: <span class="string">&quot;管理员&quot;</span>,</span><br><span class="line">    <span class="string">&quot;到期时间&quot;</span>: <span class="string">&quot;2022年10月1日&quot;</span>    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。</li>
+<li>为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。</li>
+</ul>
+<p>JWT由三个部分组成，依次如下：</p>
+<ul>
+<li>Header（头部）</li>
+<li>Payload（负载）</li>
+<li>Signature（签名）<br>三部分最终组合为完整的字符串，中间使用<code>.</code>分隔，如下：</li>
+<li>Header.Payload.Signature</li>
+</ul>
+<p>Header部分是一个JSON 对象，描述JWT的元数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;alg&quot;</span>:<span class="string">&quot;HS256&quot;</span>,</span><br><span class="line">    <span class="string">&quot;typ&quot;</span>:<span class="string">&quot;JWT&quot;</span>    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>alg属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成HS256）</p>
+<p>typ属性表示这个令牌（token）的类型（type），JWT 令牌统一写为JWT</p>
+<p>最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串。</p>
+</blockquote>
+<p>Payload部分也是一个JSON 对象，用来存放实际需要传递的数据。JWT规定了7个官方字段，供选用。</p>
+<ul>
+<li>iss(issuer):签发人</li>
+<li>exp(expiration time):过期时间</li>
+<li>sub(subject):主题</li>
+<li>aud(audience):受众</li>
+<li>nbf(Not Before):生效时间</li>
+<li>iat(Issued At):签发时间</li>
+<li>jti(JWT ID):编号</li>
+</ul>
+<blockquote>
+<p>注意，JWT 默认是不加密的，任何人都可以读到，所以不要把秘密信息放在这个部分。<br>这个 JSON 对象也要使用 Base64URL 算法转成字符串。</p>
+</blockquote>
+<p>Signature部分是对前两部分的签名，防止数据篡改。</p>
+<ul>
+<li>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户</li>
+<li>然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">        base64UrlEncode(header) + <span class="string">&quot;.&quot;</span> +</span><br><span class="line">        base64UrlEncode(payload),</span><br><span class="line">        secret)</span><br></pre></td></tr></table></figure>
+
+<p>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用”点”（<code>.</code>）分隔，就可以返回给用户。</p>
+<p><img src="/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/140328.png" alt="140328.png"></p>
+<p>JWT的特点</p>
+<ul>
+<li>客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在localStorage。</li>
+<li>客户端每次与服务器通信，都要带上这个 JWT，可以把它放在 Cookie 里面自动发送，但是这样不能跨域。</li>
+<li>更好的做法是放在 HTTP 请求的头信息<code>Authorization</code>字段里面，单独发送</li>
+</ul>
+<p><em>JWT实现</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加入依赖</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jjwt&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">0.9</span><span class="number">.1</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成Token</p>
+<p><img src="/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/141032.png" alt="141032.png"></p>
+<p>解析Token</p>
+<p><img src="/2023/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%BF%9B%E9%98%B6/141126.png" alt="141126.png"></p>
 <hr>
 <h2 id="SpringBoot环境搭建"><a href="#SpringBoot环境搭建" class="headerlink" title="SpringBoot环境搭建"></a>SpringBoot环境搭建</h2><h3 id="开发环境热部署"><a href="#开发环境热部署" class="headerlink" title="开发环境热部署"></a>开发环境热部署</h3><p>1、在pom.xml文件中添加dev-tools依赖<br>使用optional&#x3D;true表示依赖不会传递，只有该项目依赖devtools，其他项目如果引入此项目生成的jar包，则不会包含devtools</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">   &lt;optional&gt;<span class="literal">true</span>&lt;/optional&gt;</span><br><span class="line">/dependency&gt;</span><br></pre></td></tr></table></figure>
