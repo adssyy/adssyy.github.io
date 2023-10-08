@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://adssyy.github.io.git">
-  <title>文章分类 | myblog_xsy</title>
+  <title>尚品汇-项目实战 | myblog_xsy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="https://adssyy.github.io.git/categories/index.html">
+  <meta name="description" content="尚品汇-电商购物-学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尚品汇-项目实战">
+<meta property="og:url" content="https://adssyy.github.io.git/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="myblog_xsy">
+<meta property="og:description" content="尚品汇-电商购物-学习记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-14T11:34:23.000Z">
-<meta property="article:modified_time" content="2023-07-14T11:35:53.343Z">
+<meta property="og:image" content="https://adssyy.github.io.git/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/151208.png">
+<meta property="article:published_time" content="2023-10-08T05:37:28.000Z">
+<meta property="article:modified_time" content="2023-10-08T15:04:08.988Z">
 <meta property="article:author" content="QjdAT">
-<meta property="article:tag" content="Java，springboot，springcloud">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adssyy.github.io.git/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/151208.png">
   
     <link rel="alternative" href="/atom.xml" title="myblog_xsy" type="application/atom+xml">
   
@@ -164,30 +168,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-尚品汇-项目实战" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      尚品汇-项目实战
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2023-07-14T11:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-14</time>
+        <a href="/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="archive-article-date">
+  	<time datetime="2023-10-08T05:37:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="尚品汇-电商购物-学习记录"><a href="#尚品汇-电商购物-学习记录" class="headerlink" title="尚品汇-电商购物-学习记录"></a>尚品汇-电商购物-学习记录</h1><span id="more"></span>
+
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day-1"></a>Day-1</h2><h3 id="1、vue-cli脚手架初始化项目"><a href="#1、vue-cli脚手架初始化项目" class="headerlink" title="1、vue-cli脚手架初始化项目"></a>1、vue-cli脚手架初始化项目</h3><ul>
+<li>Vue项目工程的介绍</li>
+</ul>
+<p><em>node_modules</em> ：存放项目依赖<br><em>public</em> ：放置静态资源，比如html、静态图标等等（webpack进行打包时该文件夹下的所有文件都会被打包到dist文件夹中）<br><em>src</em> ：项目的源码目录<br><em>src.assets</em> ：放置静态资源，比如一些公用的logo、图片、自定义样式（webpack进行打包时，assets文件夹里面资源被打包为一个模块存放在js文件夹里面）<br><em>src.components</em> ：vue组件（非路由组件）<br><em>src.router</em> ：定义路由，每个路由对应一个页面<br><em>src.views</em> ：视图文件（路由组件）<br><em>App.vue</em> ：所有页面的入口（根组件）<br><em>main.js</em> ：所有配置的入口，可以导入项目所需要的包，然后组合在一起（代码先执行的地方）<br><em>babel.config.js</em> :babel的配置文件<br><em>package.json</em> :项目依赖、项目描述以及运行指令<br><em>vue.config.js</em> ：vue项目里的一些配置，可以配置端口、跨域等等<br><em>package-lock.json</em> :缓存性文件</p>
+<h3 id="2、项目配置"><a href="#2、项目配置" class="headerlink" title="2、项目配置"></a>2、项目配置</h3><p>1、运行项目后浏览器自动打开</p>
+<p>在package.json文件中serve运行语句后面加 “ –open”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;serve&quot;: &quot;vue-cli-service serve --open&quot;,</span><br><span class="line">  &quot;build&quot;: &quot;vue-cli-service build&quot;,</span><br><span class="line">  &quot;lint&quot;: &quot;vue-cli-service lint&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2、eslint校验功能关闭</p>
+<p>在 <em>vue.config.js</em> 文件下添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  //关闭eslint</span><br><span class="line">  lintOnSave:false,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、src文件夹配置别名<code>@</code>（现在生成项目时自动生成）</p>
+<p>在jsconfig.json文件中<code>&quot;paths&quot;</code>后面添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> //目的是使@不能在node_modules、dist文件中使用</span><br><span class="line">&quot;exclude&quot;: [</span><br><span class="line">   &quot;node_modules&quot;,</span><br><span class="line">   &quot;dist&quot;,</span><br><span class="line"> ],</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果保存时<code>exclude</code>报红，在vsCode设置中搜索<code>jsconfig</code>，勾选下图位置重启vsCode。</p>
+</blockquote>
+<p><img src="/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/151208.png" alt="151208.png"></p>
+<h3 id="3、项目路由配置"><a href="#3、项目路由配置" class="headerlink" title="3、项目路由配置"></a>3、项目路由配置</h3><p>前端路由：KV键值对（key:URL,即地址栏中的路径；value：相对应的路由组件）</p>
+<p>路由组件：系统页面的登录、注册、查询、主页等相关路由组件<br>非路由组件：header footer</p>
+<h3 id="4、非路由组件的相关配置"><a href="#4、非路由组件的相关配置" class="headerlink" title="4、非路由组件的相关配置"></a>4、非路由组件的相关配置</h3><p>1、在配置相关样式时采用less样式，浏览器不识别less样式，需要安装less、less-loader（版本6）进行less转换为css的处理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save less less-loader@6</span><br></pre></td></tr></table></figure>
+<p>2、想要让组件识别less样式，需要在style标签上添加 <code>lang=&quot;less&quot;</code><br>3、由于非路由相关图片不是公共资源，可以在相对应的文件夹下创建对应的images文件夹存放相关的logo或二维码等图片</p>
+<h3 id="5、路由组件配置"><a href="#5、路由组件配置" class="headerlink" title="5、路由组件配置"></a>5、路由组件配置</h3><p>1、安装vue-router相关依赖(vue2&#x3D;&gt;vue-router3、vue3&#x3D;&gt;vue-router4)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save vue-router@3</span><br></pre></td></tr></table></figure>
+<p>2、router&#x2F;index.js文件下配置引入相关路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//配置项目路由</span><br><span class="line">import Vue from &#x27;vue&#x27;;</span><br><span class="line">import VueRouter from &#x27;vue-router&#x27;;</span><br><span class="line"></span><br><span class="line">//使用vue-router插件</span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line">//引入组件路由</span><br><span class="line">import Home from &#x27;@/views/Home&#x27;</span><br><span class="line">import Login from &#x27;@/views/Login&#x27;</span><br><span class="line">import Register from &#x27;@/views/Register&#x27;</span><br><span class="line">import Search from &#x27;@/views/Search&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//配置路由</span><br><span class="line">export default new VueRouter(&#123;</span><br><span class="line">    routes:[</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/home&quot;,</span><br><span class="line">            component:Home</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/login&quot;,</span><br><span class="line">            component:Login</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/register&quot;,</span><br><span class="line">            component:Register</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/search&quot;,</span><br><span class="line">            component:Search</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3、在main.js文件中引入路由并完成相关注册</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import App from &#x27;./App.vue&#x27;</span><br><span class="line"></span><br><span class="line">//引入路由</span><br><span class="line">import router from &#x27;@/router&#x27;;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  render: h =&gt; h(App),</span><br><span class="line">  router:router,//注册路由,key和value相同时刻省略value参数</span><br><span class="line">  //注册路由信息后，组件身上都拥有$route和$router属性</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注册路由信息后，组件身上都拥有$route和$router属性</p>
+<p>$route:获取路由信息（路径、query、params等）</p>
+<p>$router:一般进行编程式导航进行路由跳转（push|replace  二者的区别是能不能记住历史记录）</p>
+</blockquote>
+<p>4、路由的跳转</p>
+<ul>
+<li>声明式导航 router-link(标签上一定要有 to&#x3D;”&#x2F;path”)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login&quot;&gt;登录&lt;/router-link&gt;</span><br><span class="line">&lt;router-link class=&quot;register&quot; to=&quot;/register&quot;&gt;免费注册&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编程式导航 push|replace</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;button class=&quot;sui-btn btn-xlarge btn-danger&quot; type=&quot;button&quot; @click=&quot;goSearch&quot;&gt;搜索&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"> //搜索按钮回调函数：需要向search路由进行跳转</span><br><span class="line">    methods:&#123;</span><br><span class="line">        goSearch()&#123;</span><br><span class="line">            this.$router.push(&#x27;/search&#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>声明式导航能做的，编程式导航都能做，同时，编程式导航还可以做其他的业务逻辑（路由传参）</p>
+</blockquote>
+<h3 id="6、Footer组件的显示与隐藏"><a href="#6、Footer组件的显示与隐藏" class="headerlink" title="6、Footer组件的显示与隐藏"></a>6、Footer组件的显示与隐藏</h3><p>1、我们在<code>app.vue</code>中导入了Footer组件，但是有些页面是不需要展示的，此时我们可以通过<code>v-show</code>按需在页面展示Footer组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在Home、Search显示全部Footer，在login、register时隐藏部分Footer --&gt;</span><br><span class="line">&lt;Footer v-show=&quot;$route.path==&#x27;/home&#x27;||$route.path==&#x27;/search&#x27;&quot;&gt;&lt;/Footer&gt;</span><br></pre></td></tr></table></figure>
+
+<!-- 设置路由元信息meta解决当前问题好处：一行代码就可以解决,并且当多个路由需要显示时同样简便 -->
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在Home、Search显示全部Footer，在login、register时隐藏部分Footer --&gt;</span><br><span class="line">&lt;Footer v-show=&quot;$route.meta.footerShow&quot;&gt;&lt;/Footer&gt;//$route获取当前路由的信息</span><br></pre></td></tr></table></figure>
+
+<p>在路由中设置meta:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &quot;/home&quot;,</span><br><span class="line">    component:Home,</span><br><span class="line">    meta:&#123;footerShow:true&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2、为什么使用<code>v-show</code>而不使用<code>v-if</code>？<br><code>v-show</code>与<code>v-if</code>区别 :</p>
+<ol>
+<li>展示形式不同<br><code>v-if</code>是创建一个dom节点，通过元素上树与下树进行操作<br><code>v-show</code>是display:none 、 block，通过样式display控制</li>
+<li>使用场景不同<br>初次加载v-if要比v-show好，页面不会做加载盒子<br>频繁切换v-show要比v-if好，创建和删除的开销太大了，显示和隐藏开销较小<br>因为v-if会频繁的操作dom元素消耗性能，v-show只是通过样式将元素显示或隐藏。</li>
+</ol>
+<h3 id="7、路由传参"><a href="#7、路由传参" class="headerlink" title="7、路由传参"></a>7、路由传参</h3><p>1、params参数:属于路径当中的一部分（在配置是需要对其进行占位）<br>2、query参数:不属于路径中的一部分，类似于ajax中的queryString &#x2F; home?k&#x3D;v&amp;k&#x3D;v，不需要占位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> methods:&#123;</span><br><span class="line">        //搜索按钮回调函数：需要向search路由进行跳转</span><br><span class="line">        goSearch()&#123;</span><br><span class="line">            //路由传递参数  </span><br><span class="line">            //第一种：字符串形式传参</span><br><span class="line">            this.$router.push(&quot;/search/&quot; + this.keyword + &quot;?k=&quot; + this.keyword.toUpperCase());</span><br><span class="line">            //第二种: 模板字符串传参</span><br><span class="line">            this.$router.push(`/search/&quot;$&#123;this.keyword&#125;?k=&quot;$&#123;this.keyword.toUpperCase()&#125;`);</span><br><span class="line">            //第三种: 对象传参 （常用）</span><br><span class="line">            this.$router.push(&#123;name:&quot;search&quot;,params:&#123;keyword:this.keyword&#125;,query:&#123;k:this.keyword.toUpperCase()&#125;&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">//第三种对象传参时要在路由中配置name  </span><br><span class="line"> &#123;</span><br><span class="line">            path: &quot;/search/:search&quot;,</span><br><span class="line">            component:Search,</span><br><span class="line">            meta:&#123;footerShow:true&#125;,</span><br><span class="line">            name: &#x27;search&#x27;</span><br><span class="line">        &#125;,      </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>toUpperCase()方法是小写字母转大写的方法</p>
+</blockquote>
+<h3 id="8、路由传参的相关面试题"><a href="#8、路由传参的相关面试题" class="headerlink" title="8、路由传参的相关面试题"></a>8、路由传参的相关面试题</h3><p>1、路由传递参数（对象写法）path是否可以结合params参数一起使用?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//不可以，路由跳转传参的时候，对象的写法可以是name、path形式，但是需要注意的是，path这种写法不能与params参数一起使用,否则程序会崩掉</span><br><span class="line">this.$router.push(&#123;path:&#x27;/search&#x27;,params:&#123;keyword:this.keyword&#125;,query:&#123;k:this.keyword.toUpperCase()&#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>2、如何指定params参数可传可不传?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">如果路由要求传递params参数，但是就不传递参数，发现一件事情，URL会有问题，路径不对,缺少search</span><br><span class="line">如果指定name与params配置, 但params中数据是一个&quot;&quot;, 无法跳转，路径会出问题</span><br><span class="line">如何指定params参数可传递可不传递时，在配置路由的时候，在占位符后面加上一个 ? 【params参数可以传递或者不需要传递，正则表达式 ? 可有可无】</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">      path: &#x27;/search/:keyword&#x27;,</span><br><span class="line">      component: Search,</span><br><span class="line">      meta:&#123;show:true&#125;,</span><br><span class="line">      // 路由的第三种传参</span><br><span class="line">      name: &#x27;search&#x27;</span><br><span class="line">&#125;</span><br><span class="line">比如： 配置路由的时候，占位了（params参数），但是路由跳转的时候就不传递。</span><br><span class="line">路径会出现问题</span><br><span class="line">http://localhost:8080/#/?k=qwe</span><br><span class="line">http://localhost:8080/#/search?k=qwe</span><br><span class="line">this.$router.push(&#123;path: &#x27;/search&#x27;, query: &#123;k: this.keyword.toUpperCase()&#125;&#125;)</span><br><span class="line"></span><br><span class="line">解决：在 path的 params后面 加一个 ?</span><br><span class="line">&#123;</span><br><span class="line">      path: &#x27;/search/:keyword?&#x27;,</span><br><span class="line">      component: Search,</span><br><span class="line">      meta:&#123;show:true&#125;,</span><br><span class="line">      // 路由的第三种传参</span><br><span class="line">      name: &#x27;search&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、params参数可以传递也可以不传递，但是如果传递是空串，如何解决？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;name: &#x27;search&#x27;, params:&#123;keyword: &#x27;&#x27;&#125;, query: &#123;k: this.keyword.toUpperCase()&#125;&#125;)</span><br><span class="line">//如果不处理，还是会出现URL的问题，URL错误，使用 ||undefined 来解决这种问题</span><br><span class="line">this.$router.push(&#123;name: &#x27;search&#x27;, params:&#123;keyword: &#x27;&#x27;||undefined&#125;, query: &#123;k: this.keyword.toUpperCase()&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>4、路由组件能不能传递props数据?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">是可以的，有三种写法</span><br><span class="line"></span><br><span class="line">1. 布尔值写法  --------   只能传递params参数</span><br><span class="line">// 跳转</span><br><span class="line">this.$router.push(&#123;name: &#x27;search&#x27;, params:&#123;keyword: this.keyword&#125;, query: &#123;k: this.keyword.toUpperCase()&#125;&#125;)</span><br><span class="line">// 路由的配置</span><br><span class="line">&#123;</span><br><span class="line">      path: &#x27;/search/:keyword&#x27;,</span><br><span class="line">      component: Search,</span><br><span class="line">      meta:&#123;show:true&#125;,</span><br><span class="line">      // 路由的第三种传参</span><br><span class="line">      name: &#x27;search&#x27;,</span><br><span class="line">      // 路由组件能不能传递 props 数据？</span><br><span class="line">      props: true</span><br><span class="line">&#125;</span><br><span class="line">// Search组件</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;Search&#x27;,</span><br><span class="line">  props:[&#x27;keyword&#x27;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2.对象写法</span><br><span class="line">// 路由的配置</span><br><span class="line">&#123;</span><br><span class="line">      path: &#x27;/search/:keyword&#x27;,</span><br><span class="line">      component: Search,</span><br><span class="line">      meta:&#123;show:true&#125;,</span><br><span class="line">      // 路由的第三种传参</span><br><span class="line">      name: &#x27;search&#x27;,</span><br><span class="line">      // 对象写法</span><br><span class="line">      props:&#123;</span><br><span class="line">        a: 1, b: 2</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">// Search组件</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;Search&#x27;,</span><br><span class="line">  props:[&#x27;keyword&#x27;, &#x27;a&#x27;, &#x27;b&#x27;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.函数写法 ------  最常用</span><br><span class="line">// 路由的配置</span><br><span class="line">&#123;</span><br><span class="line">      path: &#x27;/search/:keyword&#x27;,</span><br><span class="line">      component: Search,</span><br><span class="line">      meta:&#123;show:true&#125;,</span><br><span class="line">      // 路由的第三种传参</span><br><span class="line">      name: &#x27;search&#x27;,</span><br><span class="line">      // 函数写法，可以通过params参数、query参数，通过props传递给路由组件</span><br><span class="line">      props: ($route) =&gt; &#123;</span><br><span class="line">        return &#123;keyword: $route.params.keyword, k: $route.query.k&#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">// Search组件</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;Search&#x27;,</span><br><span class="line">  props:[&#x27;keyword&#x27;, &#x27;a&#x27;, &#x27;b&#x27;, &#x27;k&#x27;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
       
 
 
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+       
+   
 
 
 <!-- 添加版权声明 -->
@@ -196,7 +297,27 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      QjdAT
+    
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://adssyy.github.io.git/2023/10/08/尚品汇-项目实战/" title="尚品汇-项目实战" target="_blank">尚品汇-项目实战</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://adssyy.github.io.git/2023/10/08/尚品汇-项目实战/" title="尚品汇-项目实战" target="_blank">https://adssyy.github.io.git/2023/10/08/尚品汇-项目实战/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
 
 
 
@@ -238,7 +359,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Vue2项目实战//" class="article-tag-list-link color4">Vue2项目实战</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -288,7 +431,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://adssyy.github.io/ithub.io.git/categories/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://adssyy.github.io/ithub.io.git/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,6 +443,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2023/09/25/SpringBoot+Vue%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot+Vue框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -314,12 +467,50 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%9A%E5%93%81%E6%B1%87-%E7%94%B5%E5%95%86%E8%B4%AD%E7%89%A9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">尚品汇-电商购物-学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-1"><span class="toc-number">1.1.</span> <span class="toc-text">Day-1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、vue-cli脚手架初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、项目配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%A1%B9%E7%9B%AE%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、项目路由配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E9%9D%9E%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、非路由组件的相关配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、路由组件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Footer%E7%BB%84%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F"><span class="toc-number">1.1.6.</span> <span class="toc-text">6、Footer组件的显示与隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="toc-number">1.1.7.</span> <span class="toc-text">7、路由传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82%E7%9A%84%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.1.8.</span> <span class="toc-text">8、路由传参的相关面试题</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
+  
+
+  
+
+  
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
           </div>
         </div>
       </div>
@@ -341,7 +532,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
