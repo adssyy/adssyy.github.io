@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://adssyy.github.io.git">
-  <title>Archives: 2023/10 | myblog_xsy</title>
+  <title>日常问题总结 | myblog_xsy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="myblog_xsy">
-<meta property="og:url" content="https://adssyy.github.io.git/archives/2023/10/index.html">
+  <meta name="description" content="日常开发问题总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常问题总结">
+<meta property="og:url" content="https://adssyy.github.io.git/2024/03/25/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="myblog_xsy">
+<meta property="og:description" content="日常开发问题总结">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-25T05:44:46.000Z">
+<meta property="article:modified_time" content="2024-03-25T06:33:34.144Z">
 <meta property="article:author" content="QjdAT">
-<meta property="article:tag" content="Java，springboot，springcloud">
+<meta property="article:tag" content="问题总结">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="myblog_xsy" type="application/atom+xml">
@@ -162,122 +166,277 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-日常问题总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/10/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2023-10-10T10:13:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/10/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">阿里巴巴Android开发规范</a>
+    <h1 class="article-title" itemprop="name">
+      日常问题总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2024/03/25/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2024-03-25T05:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="日常开发问题总结"><a href="#日常开发问题总结" class="headerlink" title="日常开发问题总结"></a>日常开发问题总结</h1><span id="more"></span>
+
+<h2 id="1、float和Float的区别"><a href="#1、float和Float的区别" class="headerlink" title="1、float和Float的区别"></a>1、float和Float的区别</h2><p>float：这是Java中的一个基本数据类型，用于存储单精度的浮点数。它不能直接是null，只能存储浮点数值或者默认的基本类型值（例如0.0f）。</p>
+<p>Float:Float是float的包装类，是一个对象，它提供了很多有用的方法和常量，并允许float作为对象处理。它允许浮点数值为null，并且提供了许多有用的方法，如类型转换、比较和字符串表示等。</p>
+<p>转换： 可以从float转换为Float，但不能从Float隐式转换为float（除非调用floatValue()方法）。</p>
+<p>方法： Float类提供了很多方法，例如parseFloat(), valueOf(), isNaN(), isInfinite(), compareTo()等，这些在float上是不可用的。</p>
+<blockquote>
+<p>（图书管理系统）在实体类中定义price属性时，如果使用float类型，那么在前端页面中不输入（即空字符串），表单后端期望的是一个float类型的值，但前端传入的是一个空字符串（””）,<br>并且后端没有进行转换逻辑，那么尝试将空字符串转换为float就会失败，因为空字符串不能被转换为一个数字，会将错误信息抛出：<br>“Failed to convert property value of type ‘java.lang.String’ to required type ‘float’ for property ‘price’; empty String” ，后端向前端返回错误信息<br>的时候会将这个错误信息直接返回给前端，然而这种做法对用户来讲是不友好的，用户不知道哪里出了问题。 后续将price属性定义为Float类型，因为Float类型可以接收空字符串，<br>空字符串会被自动转换为null，不会报错并且会将系统定义的默认信息返回给前端。</p>
+</blockquote>
+<h2 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h2>
+      
+
+
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+       
+   
+
+
+<!-- 添加版权声明 -->
+
+    
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      QjdAT
+    
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://adssyy.github.io.git/2024/03/25/日常问题总结/" title="日常问题总结" target="_blank">日常问题总结</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://adssyy.github.io.git/2024/03/25/日常问题总结/" title="日常问题总结" target="_blank">https://adssyy.github.io.git/2024/03/25/日常问题总结/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+
+
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢大佬馈赠<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/vx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">问题总结</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/阿里巴巴Android开发//" class="article-tag-list-link color4">阿里巴巴Android开发</a>
+        			<a href="/categories/问题总结//" class="article-tag-list-link color5">问题总结</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://adssyy.github.io/ithub.io.git/2024/03/25/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="archive-article-date">
-  	<time datetime="2023-10-08T05:37:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/04/SpringBoot%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/08/%E5%B0%9A%E5%93%81%E6%B1%87-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">尚品汇-项目实战</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Vue2项目实战//" class="article-tag-list-link color4">Vue2项目实战</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">日常开发问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81float%E5%92%8CFloat%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">1、float和Float的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">2、</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
           </div>
         </div>
       </div>
@@ -299,8 +458,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -16,7 +16,7 @@
 <meta property="og:description" content="SpringBoot框架">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-04T05:56:36.000Z">
-<meta property="article:modified_time" content="2024-03-25T03:34:09.705Z">
+<meta property="article:modified_time" content="2024-03-25T06:51:50.926Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-    		总文章数 16
+    		总文章数 17
 		</nav>
 
 		<nav class="header-smart-menu">
@@ -274,7 +274,7 @@
 <ul>
 <li>3.编写验证属性文件，beanValidation.properties,beanValidation_zh.properties,beanValidation_en.properties,</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#举例</span><br><span class="line">#beanValidation.properties</span><br><span class="line">name.error.notnull=图书名称不能为空</span><br><span class="line">name.error.max=图书名称不能超过<span class="number">25</span>个字符</span><br><span class="line">author.error.notnull=作者不能为空</span><br><span class="line">price.error.value=价格必须大于<span class="number">0</span></span><br><span class="line">publisher.error.notnull=出版社不能为空</span><br><span class="line">coverurl.error.notnull=封面不能为空</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//举例</span></span><br><span class="line"><span class="comment">//beanValidation.properties</span></span><br><span class="line">name.error.notnull=图书名称不能为空</span><br><span class="line">name.error.max=图书名称不能超过<span class="number">25</span>个字符</span><br><span class="line">author.error.notnull=作者不能为空</span><br><span class="line">price.error.value=价格必须大于<span class="number">0</span></span><br><span class="line">publisher.error.notnull=出版社不能为空</span><br><span class="line">coverurl.error.notnull=封面不能为空</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图书实体类</span></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;&#123;name.error.notnull&#125;&quot;)</span></span><br><span class="line">    <span class="meta">@Size(max = 25, message = &quot;&#123;name.error.max&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;&#123;author.error.notnull&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String author;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Min(value = 0, message = &quot;&#123;price.error.value&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Float price;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;&#123;publisher.error.notnull&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String publisher;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Past(message = &quot;出版日期不能晚于今天&quot;)</span></span><br><span class="line">    <span class="meta">@DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)</span></span><br><span class="line">    <span class="meta">@JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)</span>  <span class="comment">//此注解来自于：jackson-datatype-jsr310</span></span><br><span class="line">    <span class="keyword">private</span> LocalDate publishDate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;&#123;coverurl.error.notnull&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String coverUrl;</span><br></pre></td></tr></table></figure>
 
@@ -495,6 +495,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2024/03/25/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          日常问题总结
+        
+      </div>
+    </a>
+  
   
     <a href="/2023/11/18/%E9%9D%A2%E8%AF%95%E9%A2%98(2)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">面试题（2）</div>
@@ -652,11 +661,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,15 +681,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringBoot/Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringBoot/Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
