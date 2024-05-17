@@ -16,7 +16,7 @@
 <meta property="og:description" content="日常开发问题总结">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-25T05:44:46.000Z">
-<meta property="article:modified_time" content="2024-03-28T06:55:10.143Z">
+<meta property="article:modified_time" content="2024-05-17T07:03:55.669Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="问题总结">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,143 @@
 <blockquote>
 <p>（图书管理系统）在实体类中定义price属性时，如果使用float类型，那么在前端页面中不输入（即空字符串），表单后端期望的是一个float类型的值，但前端传入的是一个空字符串（””）,<br>并且后端没有进行转换逻辑，那么尝试将空字符串转换为float就会失败，因为空字符串不能被转换为一个数字，会将错误信息抛出：“Failed to convert property value of type ‘java.lang.String’<br>to required type ‘float’ for property ‘price’; empty String” ，后端向前端返回错误信息 的时候会将这个错误信息直接返回给前端，然而这种做法对用户来讲是不友好的，用户不知道哪里出了问题。<br>后续将price属性定义为Float类型，因为Float类型可以接收空字符串，空字符串会被自动转换为null，不会报错并且会将系统定义的默认信息返回给前端。</p>
 </blockquote>
-<h2 id="2、-Autowired和-Resource的区别-加requied-false"><a href="#2、-Autowired和-Resource的区别-加requied-false" class="headerlink" title="2、 @Autowired和@Resource的区别 加requied&#x3D;false"></a>2、 @Autowired和@Resource的区别 加requied&#x3D;false</h2>
+<h2 id="2、-Autowired和-Resource的区别-加requied-false"><a href="#2、-Autowired和-Resource的区别-加requied-false" class="headerlink" title="2、 @Autowired和@Resource的区别 加requied&#x3D;false"></a>2、 @Autowired和@Resource的区别 加requied&#x3D;false</h2><p>@Autowired：Spring提供的注解，用于自动装配bean。当一个类中存在多个构造方法或者多个参数，且这些参数都需要被Spring容器注入时，可以使用@Autowired注解。</p>
+<blockquote>
+<p>required 属性是 @Autowired 注解的一个属性，其默认值为 true。<br>当 required 为 true 时，如果 Spring 容器中没有找到匹配的 bean，那么在应用启动时就会抛出异常。<br>而当 required 为 false 时，如果 Spring 容器中没有找到匹配的 bean，那么 Spring 容器不会抛出异常，而是简单地忽略该注入点。</p>
+</blockquote>
+<p>@Resource：是Java EE提供的注解，用于自动装配bean。它可以和@Autowired注解一起使用，但@Resource注解的功能更加强大。</p>
+<p>区别：</p>
+<p>@Autowired注解的作用是根据类型自动装配bean，如果没有找到合适的bean，则抛出异常。</p>
+<p>@Resource注解的作用是根据名称自动装配bean，如果没有找到合适的bean，则不会抛出异常，而是将属性设置为null。</p>
+<p>使用@Resource注解时，如果没有找到合适的bean，不会抛出异常，而是将属性设置为null。</p>
+<p>使用@Autowired注解时，如果没有找到合适的bean，则会抛出异常。</p>
+<p>使用@Resource注解时，可以设置required属性为false，表示当没有找到合适的bean时，不会抛出异常，而是将属性设置为null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource(name=&quot;userService&quot;, required=false)</span></span><br><span class="line"><span class="keyword">private</span> UserService userService;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、Spring-MVC中-PathVariable和-RequestParam的区别"><a href="#3、Spring-MVC中-PathVariable和-RequestParam的区别" class="headerlink" title="3、Spring MVC中@PathVariable和@RequestParam的区别"></a>3、Spring MVC中@PathVariable和@RequestParam的区别</h2><p>@PathVariable：用于获取路径参数，如&#x2F;user&#x2F;{id}，{id}就是路径参数。</p>
+<p>@RequestParam：用于获取请求参数，如GET请求中参数。</p>
+<p>区别：</p>
+<p>@PathVariable注解只能用于方法参数，不能用于方法返回值。</p>
+<p>@RequestParam注解可以用于方法参数和方法返回值。</p>
+<p>@PathVariable注解可以获取路径参数，@RequestParam注解可以获取请求参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/user/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getUser</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> <span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getUser</span><span class="params">(<span class="meta">@RequestParam(&quot;id&quot;)</span> <span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、Spring-MVC中-RequestBody和-ResponseBody的区别"><a href="#4、Spring-MVC中-RequestBody和-ResponseBody的区别" class="headerlink" title="4、Spring MVC中@RequestBody和@ResponseBody的区别"></a>4、Spring MVC中@RequestBody和@ResponseBody的区别</h2><p>@RequestBody：用于将请求体中的数据绑定到对象中。</p>
+<p>@ResponseBody：用于将对象转换为响应体中的数据。</p>
+<p>区别：</p>
+<p>@RequestBody注解只能用于方法参数，不能用于方法返回值。</p>
+<p>@ResponseBody注解可以用于方法参数和方法返回值。</p>
+<p>@RequestBody注解可以将请求体中的数据绑定到对象中，@ResponseBody注解可以将对象转换为响应体中的数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">createUser</span><span class="params">(<span class="meta">@RequestBody</span> User user)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping(&quot;/user/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">getUser</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> <span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、-VO、DTO、PO的区别"><a href="#5、-VO、DTO、PO的区别" class="headerlink" title="5、 VO、DTO、PO的区别"></a>5、 VO、DTO、PO的区别</h2><p>VO（View Object）：视图对象，包含多个属性，主要用于展示层之间的数据传递。</p>
+<p>DTO（Data Transfer Object）：数据传输对象，包含多个属性，主要用于业务层之间的数据传递。</p>
+<p>PO（Persistent Object）：持久化对象，包含多个属性，主要用于持久化层之间的数据传递。</p>
+<p>区别：</p>
+<p>VO和DTO都包含多个属性，但VO主要用于展示层之间的数据传递，DTO主要用于业务层之间的数据传递。</p>
+<p>VO和DTO都可以用于业务层之间的数据传递，但PO只能用于持久化层之间的数据传递。</p>
+<p>PO包含多个属性，且属性值不能为null，PO主要用于持久化层之间的数据传递。</p>
+<h2 id="6-常用注解的作用"><a href="#6-常用注解的作用" class="headerlink" title="6.常用注解的作用"></a>6.常用注解的作用</h2><p>1、 @Data 注解：</p>
+<p>作用：</p>
+<ul>
+<li>@Data注解是lombok提供的一个注解，可以帮助我们生成get、set、equals、hashCode、toString方法。</li>
+<li>@Data注解可以自动生成equals、hashCode、toString方法，并且还会生成全参数的构造方法、全参数的构造方法、全参数的构造方法。</li>
+<li>@Data注解可以自动生成final修饰的成员变量，并且会生成默认的构造方法。</li>
+<li>@Data注解可以自动生成@NonNull注解。</li>
+</ul>
+<p>2、 @TableName注解：</p>
+<p>作用：</p>
+<ul>
+<li>@TableName注解是Mybatis-Plus提供的一个注解，可以帮助我们指定表名。</li>
+<li>@TableName注解可以指定实体类和数据库表的字段映射关系。</li>
+</ul>
+<p>3、@Accessors注解：</p>
+<p>作用：</p>
+<ul>
+<li>@Accessors注解是Lombok库中的一个注解，用于控制setter方法的链式调用。当chain属性设置为true时，setter方法会返回this，允许链式调用。</li>
+<li>Person person &#x3D; new Person().setAge(18).setName(“张三”);</li>
+</ul>
+<p>4、@TableField注解：</p>
+<p>作用：</p>
+<ul>
+<li>@TableField注解是Mybatis-Plus提供的一个注解，可以帮助我们指定表字段。</li>
+<li>@TableField注解可以指定实体类和数据库表的字段映射关系。</li>
+<li>@TableField(exist &#x3D; false) 表示这个字段在数据库表中不存在。这通常用于一些在实体类中作为辅助数据，但不需要持久化到数据库中的字段。</li>
+</ul>
+<p>5、 @ToString.Exclude注解：</p>
+<p>作用：</p>
+<ul>
+<li>@ToString.Exclude注解可以排除toString方法中的某些字段，从而减少toString方法的输出内容。</li>
+</ul>
+<p>6、 @JsonFormat注解：</p>
+<p>作用：</p>
+<ul>
+<li>@JsonFormat注解是Jackson提供的一个注解，可以帮助我们指定日期格式。</li>
+<li>@JsonFormat注解可以指定日期格式，如yyyy-MM-dd HH:mm:ss。</li>
+<li>@JsonFormat注解可以指定时区，如GMT+8。</li>
+<li>@JsonFormat注解可以指定时间戳格式，如yyyy-MM-dd’T’HH:mm:ss.SSS’Z’。</li>
+<li>@JsonFormat注解可以指定Locale，如Locale.CHINA。</li>
+</ul>
+<p>7、 @TableId注解：</p>
+<p>作用：</p>
+<ul>
+<li>@TableId注解是Mybatis-Plus提供的一个注解，可以帮助我们指定主键字段。</li>
+<li>@TableId注解可以指定实体类和数据库表的主键映射关系。</li>
+<li>@TableId(type &#x3D; IdType.AUTO) 表示主键由Mybatis-Plus自动生成。</li>
+<li>@TableId(type &#x3D; IdType.ASSIGN_ID) 表示主键由Mybatis-Plus分配。</li>
+<li>@TableId(type &#x3D; IdType.INPUT) 表示主键由用户输入。</li>
+</ul>
+<p>8、@Options注解：</p>
+<p>作用：</p>
+<ul>
+<li>@Options注解是Mybatis-Plus提供的一个注解，可以帮助我们指定一些Mybatis的配置。</li>
+<li>@Options注解可以指定Mybatis的缓存配置、延迟加载配置、自动映射配置等。</li>
+<li>useGeneratedKeys &#x3D; true: 这个选项告诉MyBatis使用数据库生成的键（通常是自增主键）来更新方法的返回值。</li>
+<li>keyProperty &#x3D; “id”: 这指定了哪个属性应该被设置为数据库生成的键的值。</li>
+<li>keyColumn &#x3D; “id”: 这指定了数据库表中的哪个列包含生成的键。</li>
+<li>根据这个注解，可以在添加数据时，使用数据库生成的主键作为主键值，方便拿到主键id，直接进行后续操作。</li>
+</ul>
+<h2 id="7-Valid和-Validated注解的区别"><a href="#7-Valid和-Validated注解的区别" class="headerlink" title="7.@Valid和@Validated注解的区别"></a>7.@Valid和@Validated注解的区别</h2><p>@Valid注解：</p>
+<p>作用：</p>
+<ul>
+<li>@Valid注解是Java EE中的一部分，属于JSR-303（Bean Validation）规范，该规范也定义了javax.validation.constraints包中的一系列注解，如@NotNull、@Size等。</li>
+<li>@Valid注解可以对bean进行校验，但是只能对bean中的属性进行校验，不能对方法参数进行校验。</li>
+</ul>
+<p>@Validated注解：</p>
+<p>作用： </p>
+<ul>
+<li>@Validated注解是Spring提供的一个注解，可以对bean进行校验，并且也可以对方法参数进行校验。</li>
+<li>@Validated注解可以指定校验的组，如@Validated(ValidationGroups.Default.class)表示对所有属性进行校验。</li>
+<li>@Validated注解可以指定校验的顺序，如@Validated(ValidationOrder.class)表示先对方法参数进行校验，再对bean属性进行校验。</li>
+<li>@Validated注解可以指定校验的模式，如@Validated(ValidationMode.ANNOTATION)表示使用注解的方式进行校验。</li>
+<li>分组校验：@Validated注解支持分组校验，可以对多个属性进行校验，并且可以指定不同的校验规则。</li>
+<li>级联校验：@Validated注解支持级联校验，即可以校验嵌套的对象。如果你有一个Person对象，它有一个Address对象作为属性，你可以使用@Validated在Person对象上，这样当Person对象被校验时，Address对象也会被校验。</li>
+</ul>
+<h2 id="8-Transactional注解的作用"><a href="#8-Transactional注解的作用" class="headerlink" title="8.@Transactional注解的作用"></a>8.@Transactional注解的作用</h2><p>在Spring框架中，@Transactional是一个注解，它用于声明一个方法或类需要在事务的上下文中执行。<br>当你在一个方法上添加@Transactional注解时，Spring会为该方法的执行创建一个新的事务（如果当前没有活动的事务存在），<br>或者将该方法加入到一个已经存在的事务中。如果该方法在执行过程中抛出了运行时异常（RuntimeException或其子类），<br>那么事务将会被自动回滚，即在该事务中进行的所有数据库操作都会被撤销。如果方法正常完成，事务则会提交，即所有操作都会永久保存到数据库中。</p>
+<ul>
+<li>传播行为 ：@Transactional注解有一个propagation属性，用于定义事务的传播行为。这决定了当在一个已经存在的事务上下文中调用另一个带有@Transactional的方法时，应该如何使用事务。例如，Propagation.REQUIRED表示当前方法必须在一个事务中运行，如果调用它的方法没有事务，则会抛出一个异常。</li>
+<li>隔离级别 ：isolation属性用于设置事务的隔离级别，它决定了多个并发事务如何相互隔离。不同的隔离级别提供了不同的并发控制和数据一致性保证。</li>
+<li>只读事务 ：通过设置readOnly属性为true，可以指示事务是只读的，这允许数据库进行某些优化。</li>
+<li>超时 ：timeout属性用于设置事务的超时时间，即事务在多少秒内必须完成。</li>
+<li>事务管理器 ：默认情况下，Spring会使用平台相关的默认事务管理器。但你也可以通过transactionManager属性指定一个自定义的事务管理器。</li>
+<li>异常处理 ：默认情况下，只有在运行时异常抛出时，事务才会回滚。如果你想在检查型异常（checked exception）发生时也回滚事务，你需要设置rollbackFor属性。</li>
+<li>嵌套事务 ：你还可以使用@Transactional来实现嵌套事务，其中外部事务管理内部事务，并决定何时提交或回滚内部事务。</li>
+</ul>
+<h2 id="9-数据库查询时的String类型转换为List类型"><a href="#9-数据库查询时的String类型转换为List类型" class="headerlink" title="9.数据库查询时的String类型转换为List类型"></a>9.数据库查询时的String类型转换为List<Long>类型</Long></h2><p>在多表查询时想要一个List<Long>类型的数组列表数据，但是数据库查询时却返回的是String类型的数组列表数据，<br>在多表查询时根据sql语句查出来的数据是一个String类型的数据，需要通过转换器转变为List<Long>列表。</Long></Long></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 持久层查询方法  </span></span><br><span class="line"><span class="meta">@Select(&quot;select t_member_card.id, t_member_card.name, t_member_card.price,&quot; +</span></span><br><span class="line"><span class="meta">        &quot; t_member_card.description, t_member_card.note, t_member_card.type, &quot; +</span></span><br><span class="line"><span class="meta">        &quot;t_member_card.total_count, t_member_card.total_day, &quot; +</span></span><br><span class="line"><span class="meta">        &quot;(select group_concat(t_course_card.course_id) from  t_course_card where t_course_card.card_id = t_member_card.id) as courseIds  &quot; +</span></span><br><span class="line"><span class="meta">        &quot;from t_member_card&quot;)</span></span><br><span class="line"><span class="meta">@Results(&#123;</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;id&quot;, column = &quot;id&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;name&quot;, column = &quot;name&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;price&quot;, column = &quot;price&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;description&quot;, column = &quot;description&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;note&quot;, column = &quot;note&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;type&quot;, column = &quot;type&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;totalCount&quot;, column = &quot;total_count&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;totalDay&quot;, column = &quot;total_day&quot;),</span></span><br><span class="line"><span class="meta">        @Result(property = &quot;courseIds&quot;, column = &quot;course_id&quot;,typeHandler = StringToListTypeHandler.class,many = @Many(fetchType = FetchType.EAGER))</span></span><br><span class="line"><span class="meta">&#125;)</span></span><br><span class="line">List&lt;AllMemberCardInfoVo&gt; <span class="title function_">getAllMemberCardInfo</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// StringToListTypeHandler 自定义的 String类型转换List类型的转换器</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.type.BaseTypeHandler;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.type.JdbcType;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.type.TypeHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.CallableStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringToListTypeHandler</span> <span class="keyword">extends</span> <span class="title class_">BaseTypeHandler</span>&lt;List&lt;Long&gt;&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNonNullParameter</span><span class="params">(PreparedStatement ps, <span class="type">int</span> i, List&lt;Long&gt; parameter, JdbcType jdbcType)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="comment">// 实现将List&lt;Long&gt;设置到PreparedStatement中</span></span><br><span class="line">        <span class="comment">// 这里通常不需要实现，因为数据库不支持直接将List&lt;Long&gt;作为参数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Long&gt; <span class="title function_">getNullableResult</span><span class="params">(ResultSet rs, String columnName)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> rs.getString(columnName);</span><br><span class="line">        <span class="keyword">return</span> value == <span class="literal">null</span> ? <span class="literal">null</span> : parseStringToLongList(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Long&gt; <span class="title function_">getNullableResult</span><span class="params">(ResultSet rs, <span class="type">int</span> columnIndex)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> rs.getString(columnIndex);</span><br><span class="line">        <span class="keyword">return</span> value == <span class="literal">null</span> ? <span class="literal">null</span> : parseStringToLongList(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Long&gt; <span class="title function_">getNullableResult</span><span class="params">(CallableStatement cs, <span class="type">int</span> columnIndex)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> cs.getString(columnIndex);</span><br><span class="line">        <span class="keyword">return</span> value == <span class="literal">null</span> ? <span class="literal">null</span> : parseStringToLongList(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Long&gt; <span class="title function_">parseStringToLongList</span><span class="params">(String value)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span> || value.trim().isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        String[] courseIdStrings = value.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">        List&lt;Long&gt; courseIds = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(courseIdStrings.length);</span><br><span class="line">        <span class="keyword">for</span> (String courseIdStr : courseIdStrings) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                courseIds.add(Long.valueOf(courseIdStr.trim()));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">                <span class="comment">// 处理转换异常，例如记录日志或抛出自定义异常</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> courseIds;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册转换器</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.kclmedu.xsy.springbootxsap_xsy.utils.StringToListTypeHandler;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.type.TypeHandler;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.annotation.MapperScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBatisConfig</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回一个将字符串转换为Long类型列表的TypeHandler</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 一个TypeHandler&lt;List&lt;Long&gt;&gt;类型的实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> TypeHandler&lt;List&lt;Long&gt;&gt; <span class="title function_">stringToListTypeHandler</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">StringToListTypeHandler</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这段代码是一个简单的Java配置类，用于在Spring框架中配置和注册一个自定义的TypeHandler。这个TypeHandler的作用是将数据库中的字符串类型转换为Java中的List<Long>类型。<br>@Configuration：这是一个Spring注解，用于标记这个类是一个配置类。在Spring Boot中，配置类用于替代传统的XML配置方式。配置类中的方法可以使用@Bean注解来注册bean，这些bean会被Spring的IoC容器管理。</Long></p>
+<p>@Bean：这是另一个Spring注解，用于标记stringToListTypeHandler()方法返回的对象应该被注册为一个Spring bean。当Spring的IoC容器启动时，它会调用这个方法并保存返回的TypeHandler实例，以便在其他地方需要时能够注入（Inject）这个bean。</p>
+<p>public TypeHandler&lt;List<Long>&gt; stringToListTypeHandler()：这是一个公共方法，返回一个TypeHandler&lt;List<Long>&gt;类型的实例。这个方法被@Bean注解标记，因此它会被Spring作为一个bean来管理。</Long></Long></p>
+<p>return new StringToListTypeHandler();：这行代码创建了一个新的StringToListTypeHandler实例并返回它。StringToListTypeHandler应该是一个实现了TypeHandler&lt;List<Long>&gt;接口的自定义类，负责将字符串转换为List<Long>。</Long></Long></p>
+<p>综上所述，这段代码的目的是在Spring的配置中注册一个自定义的TypeHandler，用于处理从数据库查询结果中获取的字符串到List<Long>类型的转换。这通常在MyBatis的映射文件中使用，以处理数据库中的某些特定字段，这些字段可能是逗号分隔的字符串，但需要在Java中作为列表处理。</Long></p>
+</blockquote>
+
       
 
 
@@ -404,7 +540,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">日常开发问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81float%E5%92%8CFloat%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">1、float和Float的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81-Autowired%E5%92%8C-Resource%E7%9A%84%E5%8C%BA%E5%88%AB-%E5%8A%A0requied-false"><span class="toc-number">1.2.</span> <span class="toc-text">2、 @Autowired和@Resource的区别 加requied&#x3D;false</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">日常开发问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81float%E5%92%8CFloat%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">1、float和Float的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81-Autowired%E5%92%8C-Resource%E7%9A%84%E5%8C%BA%E5%88%AB-%E5%8A%A0requied-false"><span class="toc-number">1.2.</span> <span class="toc-text">2、 @Autowired和@Resource的区别 加requied&#x3D;false</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Spring-MVC%E4%B8%AD-PathVariable%E5%92%8C-RequestParam%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.3.</span> <span class="toc-text">3、Spring MVC中@PathVariable和@RequestParam的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Spring-MVC%E4%B8%AD-RequestBody%E5%92%8C-ResponseBody%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.4.</span> <span class="toc-text">4、Spring MVC中@RequestBody和@ResponseBody的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81-VO%E3%80%81DTO%E3%80%81PO%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.5.</span> <span class="toc-text">5、 VO、DTO、PO的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.6.</span> <span class="toc-text">6.常用注解的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Valid%E5%92%8C-Validated%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.7.</span> <span class="toc-text">7.@Valid和@Validated注解的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Transactional%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.8.</span> <span class="toc-text">8.@Transactional注解的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E6%97%B6%E7%9A%84String%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BAList%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.9.</span> <span class="toc-text">9.数据库查询时的String类型转换为List类型</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -532,7 +668,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +680,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +704,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color1">Html/HTTP/Web综合</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Html/HTTP/Web综合</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
             
             <div class="clearfix"></div>
