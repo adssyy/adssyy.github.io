@@ -8,15 +8,17 @@
   <link rel="dns-prefetch" href="https://adssyy.github.io.git">
   <title>面试问题汇总 | myblog_xsy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="面试问题汇总">
+<meta property="og:type" content="article">
 <meta property="og:title" content="面试问题汇总">
 <meta property="og:url" content="https://adssyy.github.io.git/2024/05/24/%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="myblog_xsy">
+<meta property="og:description" content="面试问题汇总">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-24T13:52:57.000Z">
-<meta property="article:modified_time" content="2024-05-24T13:52:57.511Z">
+<meta property="article:modified_time" content="2024-05-24T15:54:32.461Z">
 <meta property="article:author" content="QjdAT">
-<meta property="article:tag" content="Java，springboot，springcloud">
+<meta property="article:tag" content="面试题总结">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="myblog_xsy" type="application/atom+xml">
@@ -184,10 +186,88 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="面试问题汇总"><a href="#面试问题汇总" class="headerlink" title="面试问题汇总"></a>面试问题汇总</h1><span id="more"></span>
+
+<h2 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h2><p>1、面向对象的特征有哪些方面，具体阐述一下。</p>
+<ul>
+<li><code>抽象</code>: 抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。</li>
+<li><code>继承</code>: 继承是从已有类得到新类的过程，新类具有原类的所有属性和方法，并可以对其进行扩展。继承可以使得子类获得父类的全部功能，同时也可以对父类进行修改，以适应子类的需要。</li>
+<li><code>封装</code>: 封装是将数据和操作数据的方法打包在一起，对外提供接口，隐藏内部的实现细节。封装可以提高代码的可读性和可维护性。</li>
+<li><code>多态</code>: 多态是指具有不同子类型的对象对同一消息作出不同的响应。多态可以使得代码更灵活、更易于扩展。</li>
+</ul>
+<p>2、&#x3D;&#x3D;和equals()方法有什么区别？</p>
+<ul>
+<li><code>==</code>: 对于基本类型来说是值比较，对于引用类型来说是比较的是引用,就是比较两个对象的引用是否指向堆内存中的同一个位置。换句话说，它检查的是两个对象是否为同一个对象实例。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;它们是同一个对象实例&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;它们不是同一个对象实例&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使a和b的值相同，==也会返回false，因为Integer是基本数据类型的包装类，它们在堆内存中是不同的对象实例。</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>equals()</code>: 默认情况下是引用比较，比较两个对象的内容是否相等.只是很多类重新了 equals 方法，比如 String、Integer 等把它变成了值比较，所以一般情况下 equals 比较的是值是否相等。</li>
+</ul>
+<p>3、String 类的常用方法都有那些？</p>
+<ul>
+<li><code>indexOf()</code>：返回指定字符的索引。</li>
+<li><code>charAt()</code>：返回指定索引处的字符。</li>
+<li><code>replace()</code>：字符串替换。</li>
+<li><code>trim()</code>：去除字符串两端空白。</li>
+<li><code>split()</code>：分割字符串，返回一个分割后的字符串数组。</li>
+<li><code>getBytes()</code>：返回字符串的 byte 类型数组。</li>
+<li><code>length()</code>：返回字符串长度。</li>
+<li><code>toLowerCase()</code>：将字符串转成小写字母。</li>
+<li><code>toUpperCase()</code>：将字符串转成大写字符。</li>
+<li><code>substring()</code>：截取字符串。</li>
+<li><code>equals()</code>：字符串比较。</li>
+</ul>
+<p>4、String、StringBuffer、StringBulid的相同点与不同点，简要概述。</p>
+<p><code>相同点</code> </p>
+<ul>
+<li>1、都是用来存储和操作字符串的类  </li>
+<li>2、都提供了各种方法来执行字符串操作，如连接、替换、插入和删除等</li>
+</ul>
+<p><code>不同点</code> </p>
+<ul>
+<li><p>1、线程安全性： String类是不可变的，字符串一旦创建就不能被更改，因此它是线程安全的。<br>StringBuffer是线程安全的，因为它对外部修改做了同步处理。<br>StringBuilder不是线程安全的，因为它没有对外部修改做同步处理，通常用于单线程环境或确定不会有外部并发修改的情况。</p>
+</li>
+<li><p>2、性能： 由于String是不可变的，每次对String的操作都会生成一个新的String对象，性能开销较大。<br>StringBuffer每次操作都会修改同一个对象，但因为它使用了synchronized关键字，所以性能开销比String大，尤其在多线程环境中。<br>StringBuilder性能最高，因为它没有使用synchronized关键字，每次操作都是在一个实例上进行，且不会产生新的对象。</p>
+</li>
+<li><p>3、可变性： String对象一旦创建，其值就不能改变。 StringBuffer和StringBuilder都是可变的，它们可以修改自己的值</p>
+</li>
+<li><p>4、API方法：<br>String类提供的方法主要集中在字符串操作上，如charAt(), substring(), indexOf()等。<br>StringBuffer和StringBuilder提供了类似的方法，但StringBuilder提供的方法比StringBuffer少，因为StringBuilder是StringBuffer的简化版，主要用于简化API。</p>
+</li>
+<li><p>5、内存视图：<br>String对象是不可变的，它们在内存中是固定的。<br>StringBuffer和StringBuilder对象是可变的，它们在内存中的视图可以改变。</p>
+</li>
+</ul>
+<blockquote>
+<p>在选择使用哪一个类时，通常考虑以下几点：</p>
+<ul>
+<li><p>如果你需要线程安全的字符串操作，而且操作不是特别频繁，可以使用StringBuffer。</p>
+</li>
+<li><p>如果你需要高性能的字符串操作，且工作在单线程环境或者确定没有并发修改，使用StringBuilder。</p>
+</li>
+<li><p>如果你只是需要处理少量的字符串操作，使用String类即可。</p>
+</li>
+</ul>
+</blockquote>
+
       
 
 
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+       
+   
 
 
 <!-- 添加版权声明 -->
@@ -196,7 +276,27 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      QjdAT
+    
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://adssyy.github.io.git/2024/05/24/面试问题汇总/" title="面试问题汇总" target="_blank">面试问题汇总</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://adssyy.github.io.git/2024/05/24/面试问题汇总/" title="面试问题汇总" target="_blank">https://adssyy.github.io.git/2024/05/24/面试问题汇总/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
 
 
 
@@ -238,7 +338,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">面试题总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面试题//" class="article-tag-list-link color4">面试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -323,6 +445,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">面试问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">后端部分</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -446,7 +581,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,7 +589,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,6 +605,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
@@ -478,11 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">面试题总结</a>
               </li>
              
               <li class="article-tag-list-item">
