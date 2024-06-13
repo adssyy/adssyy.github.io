@@ -16,7 +16,7 @@
 <meta property="og:description" content="面试问题汇总">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-24T13:52:57.000Z">
-<meta property="article:modified_time" content="2024-06-06T09:03:21.834Z">
+<meta property="article:modified_time" content="2024-06-13T11:41:36.037Z">
 <meta property="article:author" content="QjdAT">
 <meta property="article:tag" content="面试题总结">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
 <li><code>抽象</code>: 抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。</li>
 <li><code>继承</code>: 继承是从已有类得到新类的过程，新类具有原类的所有属性和方法，并可以对其进行扩展。继承可以使得子类获得父类的全部功能，同时也可以对父类进行修改，以适应子类的需要。</li>
 <li><code>封装</code>: 封装是将数据和操作数据的方法打包在一起，对外提供接口，隐藏内部的实现细节。封装可以提高代码的可读性和可维护性。</li>
-<li><code>多态</code>: 多态是指具有不同子类型的对象对同一消息作出不同的响应。多态可以使得代码更灵活、更易于扩展。</li>
+<li><code>多态</code>: 多态允许不同的对象对同一消息作出不同的响应，即一个方法可以有多个实现。多态可以使得代码更灵活、更易于扩展。  编译时多态（方法的重载）  运行时多态（方法的重写）</li>
 </ul>
 <h3 id="2、-和equals-方法有什么区别？"><a href="#2、-和equals-方法有什么区别？" class="headerlink" title="2、&#x3D;&#x3D;和equals()方法有什么区别？"></a>2、&#x3D;&#x3D;和equals()方法有什么区别？</h3><ul>
 <li><code>==</code>: 对于基本类型来说是值比较，对于引用类型来说是比较的是引用,就是比较两个对象的引用是否指向堆内存中的同一个位置。换句话说，它检查的是两个对象是否为同一个对象实例。</li>
@@ -244,7 +244,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="5、Spring-MVC中-RequestBody和-ResponseBody的区别？"><a href="#5、Spring-MVC中-RequestBody和-ResponseBody的区别？" class="headerlink" title="5、Spring MVC中@RequestBody和@ResponseBody的区别？"></a>5、Spring MVC中@RequestBody和@ResponseBody的区别？</h3><p><code>@@RequestBody</code>注解：</p>
+<h3 id="5、Spring-MVC中-RequestBody和-ResponseBody的区别？"><a href="#5、Spring-MVC中-RequestBody和-ResponseBody的区别？" class="headerlink" title="5、Spring MVC中@RequestBody和@ResponseBody的区别？"></a>5、Spring MVC中@RequestBody和@ResponseBody的区别？</h3><p><code>@RequestBody</code>注解：</p>
 <ul>
 <li>@RequestBody 注解用于将HTTP请求的正文映射到处理方法的参数上。</li>
 <li>它通常用于接收客户端发送的JSON、XML等格式数据的请求。</li>
@@ -283,7 +283,67 @@
 <li><p>5、自动配置类： 自动配置类通常以AutoConfiguration结尾，它们是标准的Spring @Configuration类，可以包含@Bean注解定义的方法，用于创建Spring容器中的bean。</p>
 </li>
 </ul>
-<h3 id="8、Spring的事务管理有哪些方式？"><a href="#8、Spring的事务管理有哪些方式？" class="headerlink" title="8、Spring的事务管理有哪些方式？"></a>8、Spring的事务管理有哪些方式？</h3><h3 id="9、Java的设计模式有哪些？"><a href="#9、Java的设计模式有哪些？" class="headerlink" title="9、Java的设计模式有哪些？"></a>9、Java的设计模式有哪些？</h3><h3 id="10、多线程问题-Java中如何避免死锁？"><a href="#10、多线程问题-Java中如何避免死锁？" class="headerlink" title="10、多线程问题   Java中如何避免死锁？"></a>10、多线程问题   Java中如何避免死锁？</h3><h3 id="11、Java多线程中调用wait-和sleep-方法有什么区别？"><a href="#11、Java多线程中调用wait-和sleep-方法有什么区别？" class="headerlink" title="11、Java多线程中调用wait()和sleep()方法有什么区别？"></a>11、Java多线程中调用wait()和sleep()方法有什么区别？</h3><h3 id="12、谈谈ArrayList、LinkedList、Vector的区别？"><a href="#12、谈谈ArrayList、LinkedList、Vector的区别？" class="headerlink" title="12、谈谈ArrayList、LinkedList、Vector的区别？"></a>12、谈谈ArrayList、LinkedList、Vector的区别？</h3><h3 id="13、谈谈你使用过的缓存？-谈谈你对分布式缓存的了解？"><a href="#13、谈谈你使用过的缓存？-谈谈你对分布式缓存的了解？" class="headerlink" title="13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？"></a>13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？</h3><hr>
+<h3 id="8、Spring的事务管理有哪些方式？"><a href="#8、Spring的事务管理有哪些方式？" class="headerlink" title="8、Spring的事务管理有哪些方式？"></a>8、Spring的事务管理有哪些方式？</h3><h3 id="9、Java的设计模式有哪些？"><a href="#9、Java的设计模式有哪些？" class="headerlink" title="9、Java的设计模式有哪些？"></a>9、Java的设计模式有哪些？</h3><h3 id="10、多线程问题-Java中如何避免死锁？"><a href="#10、多线程问题-Java中如何避免死锁？" class="headerlink" title="10、多线程问题   Java中如何避免死锁？"></a>10、多线程问题   Java中如何避免死锁？</h3><h3 id="11、Java多线程中调用wait-和sleep-方法有什么区别？"><a href="#11、Java多线程中调用wait-和sleep-方法有什么区别？" class="headerlink" title="11、Java多线程中调用wait()和sleep()方法有什么区别？"></a>11、Java多线程中调用wait()和sleep()方法有什么区别？</h3><h3 id="12、谈谈ArrayList、LinkedList、Vector的区别？"><a href="#12、谈谈ArrayList、LinkedList、Vector的区别？" class="headerlink" title="12、谈谈ArrayList、LinkedList、Vector的区别？"></a>12、谈谈ArrayList、LinkedList、Vector的区别？</h3><h3 id="13、谈谈你使用过的缓存？-谈谈你对分布式缓存的了解？"><a href="#13、谈谈你使用过的缓存？-谈谈你对分布式缓存的了解？" class="headerlink" title="13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？"></a>13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？</h3><h3 id="14、Java中的基本数据类型有哪些？取值范围是多少？"><a href="#14、Java中的基本数据类型有哪些？取值范围是多少？" class="headerlink" title="14、Java中的基本数据类型有哪些？取值范围是多少？"></a>14、Java中的基本数据类型有哪些？取值范围是多少？</h3><p><code>整数型</code></p>
+<ul>
+<li>byte：取值范围： -128~127   占用内存：1字节（8位）</li>
+<li>short：取值范围： -32768<del>32767  -2^15</del>2^15-1 占用内存：2字节（16位）</li>
+<li>int：取值范围： -2^31~2^31-1  占用内存：4字节（32位）</li>
+<li>long：取值范围： -2^63~2^63-1  占用内存：8字节（64位）</li>
+</ul>
+<p><code>浮点型</code></p>
+<ul>
+<li>float：取值范围： 3.4E-38<del>3.4E38  2^-38</del>3.4*2^38 占用内存：4字节（32位）</li>
+<li>double：取值范围： 1.7E-308~1.7E308   占用内存：8字节（64位）</li>
+</ul>
+<p><code>字符型</code></p>
+<ul>
+<li>char：取值范围： 0~65535 占用内存：2字节（16位）</li>
+</ul>
+<p><code>布尔型</code></p>
+<ul>
+<li>boolean：取值范围： true&#x2F;false  占用内存：1字节（8位）</li>
+</ul>
+<blockquote>
+<p>在不同数据类型进行算术运算时，Java会自动进行类型转换，但可能会导致精度丢失。</p>
+<p>所有的整数类型都可以互相转换，转换时会自动提升为范围更大的数据类型。</p>
+<p>byte与short类型在与int进行运算时，会将byte&#x2F;short类型转换为int类型。</p>
+<p>byte与short类型在与long进行运算时，会先将byte&#x2F;short类型转换为int类型，然后int类型与long类型进行运算，结果会自动转换为long类型。</p>
+<p>例如：int类型和long类型进行运算，结果会自动转换为long类型。</p>
+<p>float类型和double类型在进行运算时，会被提升为double类型，可能会导致精度丢失。</p>
+<p>char类型在进行运算时，会被自动转换为int类型。</p>
+</blockquote>
+<h3 id="15、Java中静态代码块、构造代码块、构造方法的执行顺序？"><a href="#15、Java中静态代码块、构造代码块、构造方法的执行顺序？" class="headerlink" title="15、Java中静态代码块、构造代码块、构造方法的执行顺序？"></a>15、Java中静态代码块、构造代码块、构造方法的执行顺序？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Parent static block&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">// 静态代码块</span></span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Parent instance block&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">// 实例代码块</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Parent</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Parent constructor&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">// 构造方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child static block&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">//静态代码块</span></span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child instance block&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">//实例代码块</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Child</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Child constructor&quot;</span>);</span><br><span class="line">    &#125;<span class="comment">//构造方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>静态代码块在类被加载到JVM时执行，只执行一次，且在静态变量和静态方法之前执行。当在主类中创建Child类的实例时，会首先加载Parent类的静态代码块，然后加载Child类的静态代码块。<br>实例代码块在每次创建类的实例时都会执行一次，且在构造方法之前执行。执行顺序为他们在代码中出现的顺序。<br>构造方法在创建类的实例时执行，执行顺序为父类构造方法、子类构造方法。<br>综合的执行顺序为：父类静态代码块、子类静态代码块、父类实例代码块、父类构造方法、子类实例代码块、子类构造方法。</p>
+<p><code>上面代码的具体输出为：</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Parent <span class="keyword">static</span> block</span><br><span class="line">Child <span class="keyword">static</span> block</span><br><span class="line">Parent instance block</span><br><span class="line">Parent constructor</span><br><span class="line">Child instance block</span><br><span class="line">Child constructor</span><br></pre></td></tr></table></figure>
+
+<h3 id="16、Java中抽象类和接口的区别以及各有什么特点？"><a href="#16、Java中抽象类和接口的区别以及各有什么特点？" class="headerlink" title="16、Java中抽象类和接口的区别以及各有什么特点？"></a>16、Java中抽象类和接口的区别以及各有什么特点？</h3><p>抽象类和接口都是用来定义一组方法，要求子类去实现这些方法。</p>
+<p><code>抽象类（Abstract Class）</code>的特点：</p>
+<ul>
+<li>1、包含抽象方法：抽象类可以包含抽象方法（没有方法体的方法），这些抽象方法必须由子类来提供具体的实现。</li>
+<li>2、可以包含非抽象方法：抽象类可以包含非抽象方法，这些方法提供了默认的实现。</li>
+<li>3、可以被实例化：抽象类本身不能被实例化，但可以创建其非抽象子类的实例。</li>
+<li>4、继承关系：一个类只能继承一个抽象类（Java中是单继承）。</li>
+<li>5、使用场景：当需要定义一个具有部分实现的类，且这个类希望被其他类继承时，可以使用抽象类。</li>
+</ul>
+<p><code>接口（Interface）</code>的特点：</p>
+<ul>
+<li>1、全部是抽象方法：接口中的所有方法默认都是抽象的，接口中不能包含任何方法的具体实现。</li>
+<li>2、只能包含常量：接口中声明的变量默认是 public static final 类型，即常量，不能被修改。</li>
+<li>3、不能被实例化：接口本身不能被实例化，需要由类实现（implements）接口来创建对象。</li>
+<li>4、多重继承：一个类可以实现多个接口，从而获取多个接口中的方法，这也使得接口成为实现多态的一种方式。</li>
+<li>5、使用场景：当需要定义一个纯粹的规范或契约且不需要任何实现时，可以使用接口。</li>
+</ul>
+<p>抽象类和接口的区别：</p>
+<ul>
+<li>1、实现方式：抽象类使用 extends 关键字来继承，接口使用 implements 关键字来实现。</li>
+<li>2、方法实现：抽象类可以有非抽象方法的实现，而接口中所有的方法都必须是抽象的且不能有实现。</li>
+<li>3、继承关系：Java中的类只能继承一个抽象类，但可以实现多个接口。</li>
+<li>4、设计理念：抽象类通常是用于表示一种类型的一部分共同行为，而接口通常是用于强调行为规范，不涉及具体实现。</li>
+<li>5、灵活性:接口可以实现多重继承，因此在构建系统时可以提供更灵活的扩展性。</li>
+</ul>
+<h3 id="17、Java中final、finally、finalize有什么区别？"><a href="#17、Java中final、finally、finalize有什么区别？" class="headerlink" title="17、Java中final、finally、finalize有什么区别？"></a>17、Java中final、finally、finalize有什么区别？</h3><hr>
 <h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><h3 id="1、你对前端部分的理解？"><a href="#1、你对前端部分的理解？" class="headerlink" title="1、你对前端部分的理解？"></a>1、你对前端部分的理解？</h3><ul>
 <li>1、前端的定义：前端开发是指构建和设计用户界面UI和用户体验UX的过程，涉及网站的外观以及用户与交互方式。</li>
 <li>2、前端三大件： HTML超文本标记语言，用于创建网页的基本结构、CSS层叠样式表，用于设计网页的布局、颜色等外观样式、JavaScript脚本语言，用于实现网页的动态效果，包括动画、表单验证、AJAX交互等。</li>
@@ -370,7 +430,152 @@
 <li>4、使用范围查询：索引可以用于范围查询，对于某些查询条件，可以快速定位到数据位置。</li>
 <li>5、减少磁盘IO：索引可以减少磁盘I&#x2F;O操作次数，因为索引通常存储在内存或高速缓存中，访问速度比直接访问数据表要快。</li>
 </ul>
-<h3 id="4、如何做MySQL的性能优化？"><a href="#4、如何做MySQL的性能优化？" class="headerlink" title="4、如何做MySQL的性能优化？"></a>4、如何做MySQL的性能优化？</h3><h3 id="5、MySQL的三范式是什么？"><a href="#5、MySQL的三范式是什么？" class="headerlink" title="5、MySQL的三范式是什么？"></a>5、MySQL的三范式是什么？</h3><h3 id="6、MySQL的内连接、外连接有什么区别？"><a href="#6、MySQL的内连接、外连接有什么区别？" class="headerlink" title="6、MySQL的内连接、外连接有什么区别？"></a>6、MySQL的内连接、外连接有什么区别？</h3>
+<h3 id="4、如何做MySQL的性能优化？"><a href="#4、如何做MySQL的性能优化？" class="headerlink" title="4、如何做MySQL的性能优化？"></a>4、如何做MySQL的性能优化？</h3><h3 id="5、MySQL的三范式是什么？"><a href="#5、MySQL的三范式是什么？" class="headerlink" title="5、MySQL的三范式是什么？"></a>5、MySQL的三范式是什么？</h3><p><code>第一范式（1NF）</code></p>
+<ul>
+<li>第一范式规定表中的每个列都应该是不可分割的最小单元，即列不能再拆分。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>中国北京</td>
+</tr>
+<tr>
+<td>2</td>
+<td>美国华盛顿</td>
+</tr>
+<tr>
+<td>3</td>
+<td>法国巴黎</td>
+</tr>
+</tbody></table>
+<p>这里的addrsss可以拆分为国家和城市两个字段，不符合第一范式。</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>country</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>中国</td>
+<td>北京</td>
+</tr>
+<tr>
+<td>2</td>
+<td>美国</td>
+<td>华盛顿</td>
+</tr>
+<tr>
+<td>3</td>
+<td>法国</td>
+<td>巴黎</td>
+</tr>
+</tbody></table>
+<p><code>第二范式（2NF）</code></p>
+<ul>
+<li>第二范式是在满足第一范式的基础上，规定表中的非主键列不存在对主键的部分依赖，也就是说每张表只描述一件事情，比如以下订单表就不满足第二范式，它可以拆分为两张独立的表：订单表和商品表。</li>
+</ul>
+<p>不满足第二范式的订单表：</p>
+<table>
+<thead>
+<tr>
+<th>订单编号</th>
+<th>商品编号</th>
+<th>商品名称</th>
+<th>订单日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>X001</td>
+<td>肉夹馍</td>
+<td>2024-06-06 10:10:10</td>
+</tr>
+</tbody></table>
+<p>上面表满足第二范式需要拆分为两张表：订单表和商品表。</p>
+<table>
+<thead>
+<tr>
+<th>订单编号</th>
+<th>订单日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2024-06-06 10:10:10</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>商品编号</th>
+<th>商品名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>X001</td>
+<td>肉夹馍</td>
+</tr>
+</tbody></table>
+<p><code>第三范式（3NF）</code></p>
+<ul>
+<li>第三范式是在满足第一范式和第二范式的基础上，规定表中的列不存在对非主键列的传递依赖。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>订单编号</th>
+<th>顾客编号</th>
+<th>顾客名称</th>
+<th>订单日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>X001</td>
+<td>张三</td>
+<td>2024-06-06 10:10:10</td>
+</tr>
+</tbody></table>
+<p>以上表中订单表中的顾客名称就不符合第三范式，因为它存在了对非主键顾客编号的依赖。</p>
+<p>解决方法：</p>
+<table>
+<thead>
+<tr>
+<th>订单编号</th>
+<th>顾客编号</th>
+<th>订单日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>X001</td>
+<td>2024-06-06 10:10:10</td>
+</tr>
+</tbody></table>
+<h3 id="6、MySQL的内连接、外连接有什么区别？"><a href="#6、MySQL的内连接、外连接有什么区别？" class="headerlink" title="6、MySQL的内连接、外连接有什么区别？"></a>6、MySQL的内连接、外连接有什么区别？</h3><h3 id="7、MySQL在建表时避免使用外键约束，使用外键约束有什么优缺点？"><a href="#7、MySQL在建表时避免使用外键约束，使用外键约束有什么优缺点？" class="headerlink" title="7、MySQL在建表时避免使用外键约束，使用外键约束有什么优缺点？"></a>7、MySQL在建表时避免使用外键约束，使用外键约束有什么优缺点？</h3><p>使用外键约束的优点：</p>
+<ul>
+<li>1、使用外键可节省开发量</li>
+<li>2、使用外键能约束数据的有效性，非法数据无法插入到数据库中</li>
+<li>3、使用外键可以实现多表之间的关系，提高了数据冗余度</li>
+<li>4、使用外键可以简化数据查询，提高查询效率</li>
+</ul>
+<p>使用外键约束的缺点：</p>
+<ul>
+<li>1、性能问题：外键约束会降低数据库的性能，尤其是在插入、更新、删除操作时。</li>
+<li>2、数据完整性：在删除父表中的数据时，需要先删除子表中的数据，这会造成数据不一致。</li>
+<li>3、修改表结构时，需要重新修改外键约束，影响开发效率。</li>
+</ul>
+<p>在实际开发中，一般不会建立外键约束，通常在表中正常建表，然后给这个字段添加索引，以提高查询效率。</p>
+
       
 
 
@@ -575,7 +780,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">面试问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">后端部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E5%BE%81%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2%EF%BC%8C%E5%85%B7%E4%BD%93%E9%98%90%E8%BF%B0%E4%B8%80%E4%B8%8B%E3%80%82"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、面向对象的特征有哪些方面，具体阐述一下。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81-%E5%92%8Cequals-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、&#x3D;&#x3D;和equals()方法有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81String-%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E9%83%BD%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、String 类的常用方法都有那些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81String%E3%80%81StringBuffer%E3%80%81StringBulid%E7%9A%84%E7%9B%B8%E5%90%8C%E7%82%B9%E4%B8%8E%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%8C%E7%AE%80%E8%A6%81%E6%A6%82%E8%BF%B0%E3%80%82"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、String、StringBuffer、StringBulid的相同点与不同点，简要概述。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Spring-MVC%E4%B8%AD-RequestBody%E5%92%8C-ResponseBody%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、Spring MVC中@RequestBody和@ResponseBody的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Spring%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.1.6.</span> <span class="toc-text">6、Spring的依赖注入有哪些方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81SpringBoot%E7%9A%84%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-number">1.1.7.</span> <span class="toc-text">7、SpringBoot的自动配置原理及实现？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.1.8.</span> <span class="toc-text">8、Spring的事务管理有哪些方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81Java%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.1.9.</span> <span class="toc-text">9、Java的设计模式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98-Java%E4%B8%AD%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-number">1.1.10.</span> <span class="toc-text">10、多线程问题   Java中如何避免死锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%AD%E8%B0%83%E7%94%A8wait-%E5%92%8Csleep-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.11.</span> <span class="toc-text">11、Java多线程中调用wait()和sleep()方法有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E8%B0%88%E8%B0%88ArrayList%E3%80%81LinkedList%E3%80%81Vector%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.12.</span> <span class="toc-text">12、谈谈ArrayList、LinkedList、Vector的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81%E8%B0%88%E8%B0%88%E4%BD%A0%E4%BD%BF%E7%94%A8%E8%BF%87%E7%9A%84%E7%BC%93%E5%AD%98%EF%BC%9F-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98%E7%9A%84%E4%BA%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.1.13.</span> <span class="toc-text">13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">前端部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BD%A0%E5%AF%B9%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、你对前端部分的理解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%BB%84%E5%90%88%E5%BC%8FAPI%E5%92%8C%E9%80%89%E9%A1%B9%E5%BC%8FAPI%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、组合式API和选项式API有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、谈谈你对状态管理的理解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Vuex%E5%92%8CPinia%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、Vuex和Pinia有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、组件间的通信有哪些方式？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">数据库部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%88%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、如何设计一个合理的数据库表结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E8%BF%87%E6%85%A2%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、数据库查询过慢的原因有哪些，如何进行优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、数据库索引有什么作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%A6%82%E4%BD%95%E5%81%9AMySQL%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、如何做MySQL的性能优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81MySQL%E7%9A%84%E4%B8%89%E8%8C%83%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.3.5.</span> <span class="toc-text">5、MySQL的三范式是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81MySQL%E7%9A%84%E5%86%85%E8%BF%9E%E6%8E%A5%E3%80%81%E5%A4%96%E8%BF%9E%E6%8E%A5%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">6、MySQL的内连接、外连接有什么区别？</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">面试问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">后端部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E5%BE%81%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2%EF%BC%8C%E5%85%B7%E4%BD%93%E9%98%90%E8%BF%B0%E4%B8%80%E4%B8%8B%E3%80%82"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、面向对象的特征有哪些方面，具体阐述一下。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81-%E5%92%8Cequals-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、&#x3D;&#x3D;和equals()方法有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81String-%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E9%83%BD%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、String 类的常用方法都有那些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81String%E3%80%81StringBuffer%E3%80%81StringBulid%E7%9A%84%E7%9B%B8%E5%90%8C%E7%82%B9%E4%B8%8E%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%8C%E7%AE%80%E8%A6%81%E6%A6%82%E8%BF%B0%E3%80%82"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、String、StringBuffer、StringBulid的相同点与不同点，简要概述。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Spring-MVC%E4%B8%AD-RequestBody%E5%92%8C-ResponseBody%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、Spring MVC中@RequestBody和@ResponseBody的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Spring%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.1.6.</span> <span class="toc-text">6、Spring的依赖注入有哪些方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81SpringBoot%E7%9A%84%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-number">1.1.7.</span> <span class="toc-text">7、SpringBoot的自动配置原理及实现？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.1.8.</span> <span class="toc-text">8、Spring的事务管理有哪些方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81Java%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.1.9.</span> <span class="toc-text">9、Java的设计模式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98-Java%E4%B8%AD%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-number">1.1.10.</span> <span class="toc-text">10、多线程问题   Java中如何避免死锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%AD%E8%B0%83%E7%94%A8wait-%E5%92%8Csleep-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.11.</span> <span class="toc-text">11、Java多线程中调用wait()和sleep()方法有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E8%B0%88%E8%B0%88ArrayList%E3%80%81LinkedList%E3%80%81Vector%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.12.</span> <span class="toc-text">12、谈谈ArrayList、LinkedList、Vector的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81%E8%B0%88%E8%B0%88%E4%BD%A0%E4%BD%BF%E7%94%A8%E8%BF%87%E7%9A%84%E7%BC%93%E5%AD%98%EF%BC%9F-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98%E7%9A%84%E4%BA%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.1.13.</span> <span class="toc-text">13、谈谈你使用过的缓存？ 谈谈你对分布式缓存的了解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81Java%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-number">1.1.14.</span> <span class="toc-text">14、Java中的基本数据类型有哪些？取值范围是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81Java%E4%B8%AD%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E3%80%81%E6%9E%84%E9%80%A0%E4%BB%A3%E7%A0%81%E5%9D%97%E3%80%81%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="toc-number">1.1.15.</span> <span class="toc-text">15、Java中静态代码块、构造代码块、构造方法的执行顺序？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81Java%E4%B8%AD%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-number">1.1.16.</span> <span class="toc-text">16、Java中抽象类和接口的区别以及各有什么特点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81Java%E4%B8%ADfinal%E3%80%81finally%E3%80%81finalize%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.17.</span> <span class="toc-text">17、Java中final、finally、finalize有什么区别？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">前端部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BD%A0%E5%AF%B9%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、你对前端部分的理解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%BB%84%E5%90%88%E5%BC%8FAPI%E5%92%8C%E9%80%89%E9%A1%B9%E5%BC%8FAPI%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、组合式API和选项式API有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、谈谈你对状态管理的理解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Vuex%E5%92%8CPinia%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、Vuex和Pinia有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、组件间的通信有哪些方式？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">数据库部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%88%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、如何设计一个合理的数据库表结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E8%BF%87%E6%85%A2%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、数据库查询过慢的原因有哪些，如何进行优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、数据库索引有什么作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%A6%82%E4%BD%95%E5%81%9AMySQL%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、如何做MySQL的性能优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81MySQL%E7%9A%84%E4%B8%89%E8%8C%83%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.3.5.</span> <span class="toc-text">5、MySQL的三范式是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81MySQL%E7%9A%84%E5%86%85%E8%BF%9E%E6%8E%A5%E3%80%81%E5%A4%96%E8%BF%9E%E6%8E%A5%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">6、MySQL的内连接、外连接有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81MySQL%E5%9C%A8%E5%BB%BA%E8%A1%A8%E6%97%B6%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">1.3.7.</span> <span class="toc-text">7、MySQL在建表时避免使用外键约束，使用外键约束有什么优缺点？</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -703,11 +908,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spring Security</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
